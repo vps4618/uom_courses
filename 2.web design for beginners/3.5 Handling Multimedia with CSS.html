@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            text-align: center;
+            font-style: italic;
+        }
+        h2{
+            text-align: center;
+            font-size: 40px;
+        }
+        img{
+            /*style image as a thumnail*/
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            /*make image responsive*/
+            max-width: 30%;
+            height: auto;
+            /*move image to center*/
+            display: block;
+            margin-left:auto ;
+            margin-right:auto ;
+            /*make image transparent*/
+            opacity: 0.7;
+        }
+        video{
+            width: 50%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .transform_animation_scale{
+            width: 100px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color: blueviolet;
+        }
+        /*scale animation*/
+        .transform_animation_scale:hover{
+            transform: scale(1.05,1.05);
+        }
+        .transform_animation_rotate{
+            width: 50px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color:cadetblue;
+        }
+        /*rotate animation*/
+        .transform_animation_rotate:hover{
+            transform:rotate(20deg);
+        }
+        .transform_animation_rotate_x{
+            width: 50px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color:green;
+        }
+        /*rotate x animation*/
+        .transform_animation_rotate_x:hover{
+            transform:rotateX(30deg);
+        }
+        .transform_animation_rotate_y{
+            width: 100px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color:palevioletred;
+        }
+        /*rotate y animation*/
+        .transform_animation_rotate_y:hover{
+            transform:rotateY(30deg);
+        }
+        .transform_animation_translate{
+            width: 50px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color:yellowgreen;
+        }        
+        /*translate animation*/
+                .transform_animation_translate:hover{
+            transform:translate(100px,100px);
+        }
+        .transform_animation_translate_x{
+            width: 50px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color:orange;
+        }
+        /*translate x animation*/
+        .transform_animation_translate_x:hover{
+            transform:translateX(100px);
+        }
+        .transform_animation_translate_y{
+            width: 100px;
+            height: 50px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color:brown;
+        }
+        /*translate y animation*/
+        .transform_animation_translate_y:hover{
+            transform:translateY(100px);
+        }
+        /*skew animation*/
+        .transform_animation_skew {
+            width: 200px;
+            height: 100px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color: rgb(210, 0, 0);
+          }
+
+          .transform_animation_skew:hover{
+              transform:skew(30deg,30deg);
+          }
+        /*skew x animation*/
+        .transform_animation_skew_x {
+            width: 200px;
+            height: 100px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color: rgb(200, 120, 0);
+          }
+
+          .transform_animation_skew_x:hover{
+              transform:skewX(30deg);
+          }
+        /*skew animation*/
+        .transform_animation_skew_y {
+            width: 200px;
+            height: 100px;
+            margin-left: auto;
+            margin-right:auto;
+            background-color: rgb(210, 0, 120);
+          }
+
+          .transform_animation_skew_y:hover{
+              transform:skewY(30deg);
+          }
+
+          
+          
+          /*keyframes*/
+          .transform_animation_keyframes {
+          width: 50px;
+          height: 50px;
+          margin-left: auto;
+          margin-right: auto;
+          background-color: rgb(165, 124, 162);
+          animation-duration: 40s;
+          animation-delay: 3s;
+          animation-iteration-count: infinite;
+          animation-name: skew_animation;
+        }
+ 
+        @keyframes skew_animation {
+            0%{
+                transform: translatex(0px);
+            }
+            10%{
+                transform: translatex(200px);
+            }
+            20%{
+                
+                transform: translate(200px,200px);
+            }
+            30%{
+                
+                transform: translate(-200px,200px);
+            }
+            40%{
+                
+        
+                transform: translatex(-200px);
+            }
+            50%{
+                transform: translatex(0px);
+            }
+      }
+      .transform_animation_keyframes1 {
+          width: 100px;
+          height: 100px;
+          margin-left: auto;
+          margin-right: auto;
+          background-color: rgb(165, 184, 162);
+          animation-duration: 40s;
+          animation-delay: 3s;
+          animation-name: skew_animation1;
+          animation-iteration-count: infinite;
+          border-radius: 360px;
+        }
+ 
+        @keyframes skew_animation1 {
+            50%{
+                transform: translatex(0px);
+            }
+
+            60%{
+            
+                transform: translatex(200px);
+            
+            }
+            
+            70%{
+             
+                transform: translate(200px,200px);
+            }
+            80%{
+           
+                transform: translate(-200px,200px);
+            }
+            90%{
+                
+            
+                transform: translatex(-200px);
+            }
+            100%{
+                transform: translatex(0px);
+            }
+      }
+
+    </style>
+</head>
+<body>
+    <h2>Style images using css</h2>
+    <!--animation-->
+    <h3>keyframes</h3>
+    <br> 
+    <div class="transform_animation_keyframes"></div>
+    <br>
+    <h3>keyframes other</h3>
+    <br> 
+    <div class="transform_animation_keyframes1"></div>
+    <br>
+    <h3>scale animation</h3>
+
+    <div class="transform_animation_scale"></div>
+    <br>
+    <h3>rotate animation</h3>
+    <br>
+    <div class="transform_animation_rotate"></div>
+    <br>
+    <h3>rotate x animation</h3>
+    <br>
+    <div class="transform_animation_rotate_x"></div>
+    <br>
+    <h3>rotate y animation</h3>
+    <br>
+    <div class="transform_animation_rotate_y"></div>
+    <br>
+    <h3>translate animation</h3>
+    <br>
+    <div class="transform_animation_translate"></div>
+    <br>
+    <h3>translate x animation</h3>
+    <br>
+    <div class="transform_animation_translate_x"></div>
+    <br>
+    <h3>translate y animation</h3>
+    <br>    
+    <div class="transform_animation_translate_y"></div>
+    <br>
+    <h3>skew animation</h3>
+    <br> 
+    <div class="transform_animation_skew"></div>
+    <br>
+    <h3>skew x animation</h3>
+    <br> 
+    <div class="transform_animation_skew_x"></div>
+    <br>
+    <h3>skew y animation</h3>
+    <br> 
+    <div class="transform_animation_skew_y"></div>
+    <br>
+
+    <img src="images/logo.png" alt="image" >
+    <br>
+    <video controls>
+        <source src="videos/1.mp4" type="video/mp4">
+    </video>
+
+</body>
+</html>

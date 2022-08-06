@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesudo elements</title>
+    <style>
+        h2::before{
+            content: '';
+            background-image: url("images/flower.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display:inline-block;
+            width: 100px;
+            height:25px;
+        }
+        h2::after{
+            content: '';
+            background-image: url("images/flower.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display:inline-block;
+            width: 100px;
+            height:25px;
+        }
+        p::first-letter{
+            font-size: 40px;
+            font-weight: 900;
+            padding: 10px 5px 5px 0px;
+            float: left;
+            line-height: 15px;
+            color: red;
+        }
+        p::first-line{
+            text-decoration: underline;
+            color: darkorchid;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>First Chapter</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda dignissimos architecto a hic sapiente culpa sunt. Accusamus voluptate amet eaque! Neque recusandae tenetur eveniet, autem culpa provident explicabo sit debitis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda dignissimos architecto a hic sapiente culpa sunt. Accusamus voluptate amet eaque! Neque recusandae tenetur eveniet, autem culpa provident explicabo sit debitis.</p>
+</body>
+</html>

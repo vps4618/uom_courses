@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        h2{
+            background-color: white;
+            text-align: center;
+        }
+        form{
+            font-size: 30px;
+        }
+
+        .form2{
+            background-color: antiquewhite;
+
+        }
+        .form1{
+            background-color:aliceblue;
+        }
+    </style>
+</head>
+<body>
+    
+        <H1 ALIGN=CENTER><FONT SIZE=+2>USER INFORMATION FORM</FONT></H1> 
+        <FORM ACTION="/Scripts/simple.pl" METHOD="post" class="form2"> 
+        User Name:<INPUT TYPE="text" NAME ="uname" SIZE=30> 
+        <BR> <BR> 
+        Service Type:<SELECT NAME="service"><OPTION>CAS<OPTION>CDRS 
+        <OPTION>COPSAT<OPTION>DDS<OPTION>FDSS<OPTION>ISS 
+        <OPTION>OSS<OPTION>SAS<OPTION>DA 
+        </SELECT> 
+        <BR> 
+        <H4><NOBR>SUBJECT AREA:</H4> 
+        <INPUT TYPE="checkbox" NAME="agriculture" >Agriculture 
+        <INPUT TYPE="checkbox" NAME="biology" >Biology 
+        <INPUT TYPE="checkbox" NAME="biomedicine" >Biomedicine 
+        <INPUT TYPE="checkbox" NAME="chemistry" >Chemistry 
+        <BR> 
+        <BR> 
+        <INPUT TYPE="radio" NAME="database">AGRIS 
+        <INPUT TYPE="radio" NAME="database">AHEAD 
+        <INPUT TYPE="radio" NAME="database">BIOSIS 
+        <INPUT TYPE="radio" NAME="database">CAB 
+        <BR> 
+        <BR> 
+        Date Entered:<INPUT TYPE="text" NAME ="entrydate" SIZE=10">(dd/mm/yyyy) 
+        <BR> 
+        <BR> 
+            
+        <INPUT TYPE= "submit" VALUE="Submit Form"> 
+        <INPUT TYPE= "reset" VALUE="Clear Form"> 
+        
+        </FORM> 
+    <br>
+    <br>
+
+    
+    <br>
+    <form class="form1">
+        <h2> Form 2</h2>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname"><br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname"><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female">
+        <label for="female">Female</label><br><br>
+
+        <label for="selection">Select your choice</label><br>
+        <input type="checkbox" id="c1">
+        <label for="c1"> Online Lectures</label><br>
+        <input type="checkbox" id="c2">
+        <label for="c2"> Physical Lectures</label><br><br>
+
+        <input type="button" value="submit"><br>
+
+        
+    </form>
+</body>
+</html>

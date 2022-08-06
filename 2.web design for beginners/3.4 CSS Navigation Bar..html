@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Navigation Bar</title>
+    <style>
+        ul {
+            overflow: hidden;
+            background-color: darkslateblue;
+            list-style-type: none;
+            margin: 0;
+
+            padding: 0px;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 13px 15px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #112;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#" style="background-color: green;" class="active">Home</a></li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">Javascript</a></li>
+        <li><a href="#">Python</a></li>
+        <li><a href="#">C#</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+</body>
+
+</html>
