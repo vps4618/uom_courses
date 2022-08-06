@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js variables and functions</title>
+</head>
+<body>
+    <p id="pid"></p>
+    <p id="pid2"></p>
+    <p id="pid3"></p>
+    <p id="pid4"></p>
+    <script>
+        // using variables
+        var username;
+        username = "Vishwa Praveen";
+        document.getElementById("pid").textContent = "Hello " + username + " !";
+        var greeting;
+        greeting = "Good Morning !";
+        document.getElementById("pid2").textContent = greeting;
+
+
+        // using functions
+        var friendname;
+        var hisGreeting;
+        
+        friendname = "Mandipa Mevanjith";
+        hisGreeting = "Good Afternoon";
+
+        function display(id,text){
+            document.getElementById(id).textContent = text; 
+        }
+
+        display("pid3","Hello " + friendname + " !");
+        display("pid4",hisGreeting);
+    </script>
+</body>
+</html>
