@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops and conditionals</title>
+</head>
+
+<body>
+    <h3>For in loop</h3>
+    <p id="para1"></p>
+    <h3>For of loop</h3>
+    <p id="para2"></p>
+    <h3>For loop</h3>
+    <script>
+
+        //ctrl+d for choose same letters and edit all
+
+        //for  loop
+        for (let i = 0; i < 10; i++) {
+            document.write("The number is " + i + "<br>");
+        }
+
+        //for in loop
+        const numbers = [15, 35, 55, 75];
+        var para = document.getElementById("para1");
+        for (let x in numbers) {
+            para.textContent += numbers[x] + " ";
+        }
+
+        //for of loop
+        const animals = ["dogs,cats,wolfs,birds,snails,bears,horses"];
+        var paraOf = document.getElementById("para2");
+        for (let animal of animals) {
+            paraOf.textContent += animal + " ";
+        }
+
+        //while loop
+        document.write("<h1>While loop</h1>");
+        var i=0;
+        while (i < 10) {
+            document.write("The number is " + i + "<br>");
+            i++;
+        }
+
+        
+        //conditionals
+        document.writeln("<h4>Conditionals</h4>");
+        var age = 3;
+        if(age>=18){
+            document.writeln("You are an adult !");
+        }
+        else if (age<5) {
+            document.writeln("You are a baby !");
+        } else {
+            document.writeln("Your are a young child !");
+        }
+    </script>
+</body>
+
+</html>

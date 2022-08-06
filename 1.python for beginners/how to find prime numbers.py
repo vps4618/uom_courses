@@ -9,3 +9,6 @@ while (j <= (i/j)):
     j = j + 1 # fix the code (3)
 if (j > i/j): 
     print ("prime")
+list = [10,20,30]
+for i in list:
+    print(i)    
