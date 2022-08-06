@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js events</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="button" onclick="clickevent()" value="Click me">
+        <input type="button" onmouseover="mouseoverevent()" value="Mouse over me">
+        <br>
+        <label id="l1"></label>
+        <br>
+        <label id="l2"></label>
+    </form>
+    <br>
+    <form>
+        <input  type="text" id="input" onkeydown="keypress()">
+        <br>
+        <label id="i3"></label>
+    </form>
+    <br>
+    <br>
+    <h1>Example 1</h1>
+<p>This example demonstrates how to assign an "onmouseover" and "onmouseout" event to a h1 element.</p>
+
+<h1 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()">Mouse over me</h1>
+<hr/>
+<h1>Example 2</h1>
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://images.pexels.com/photos/2556956/pexels-photo-2556956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Image" width="32" height="32">
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://images.pexels.com/photos/2556956/pexels-photo-2556956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Image" width="32" height="32">
+
+<p>The function bigImg() is triggered when the user mouse over the image. This function enlarges the image.</p>
+<p>The function normalImg() is triggered when the mouse pointer is moved out of the image. That function sets the height and width of the image back to normal.</p>
+<hr/>
+<!-- 
+Image provided by Launchpresso https://www.pexels.com/@launchpresso-1267072 Available:https://www.pexels.com/photo/payper-clcksign-2556956/
+-->
+    <script>
+        function clickevent() {
+            document.getElementById("l1").textContent = "clicked me";
+        }
+        function mouseoverevent() {
+            document.getElementById("l2").textContent = "Mouse over me";
+        }        
+        function keypress(params) {
+            document.getElementById("i3").textContent = "key pressed";     
+        }
+        /*
+        other events -> onchange,onmouseout,onload 
+        */
+        function mouseOver() { document.getElementById("demo").style.color = "red";
+        }
+        function mouseOut() {
+        document.getElementById("demo").style.color = "black";
+        }
+        function bigImg(x) {
+        x.style.height = "140px";
+        x.style.width = "140px";
+        }
+
+        function normalImg(x) {
+        x.style.height = "32px";
+        x.style.width = "32px";
+        }
+    </script>
+</body>
+</html>
