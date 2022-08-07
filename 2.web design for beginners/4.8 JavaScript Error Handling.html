@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js error handling</title>
+</head>
+
+<body>
+    <h2>Error Handling</h2>
+    <input id="sample" type="text">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="a1"></p>
+    <h5 id="demo"></h5>
+
+    <br>
+    <h2>Range Error</h2>
+    <p id="prange"></p>
+
+    <br>
+    <h2>Reference Error</h2>
+    <p id="preference"></p>
+
+    <br>
+    <h2>Syntax Error</h2>
+    <p id="psyntax"></p>
+
+    <br>
+    <h2>Type Error</h2>
+    <p id="ptype"></p>
+
+    <script>
+        //error handling
+        function myFunction() {
+            const message = document.getElementById("a1");
+            message.innerHTML = "";
+            let x = document.getElementById("sample").value;
+            try {
+                if (x == "") {
+                    throw "empty";
+                }
+                if (isNaN(x)) {
+                    throw "Not a number";
+                }
+                x = Number(x);
+                if (x < 5) {
+                    throw "too low";
+                }
+                if (x > 10) {
+                    throw "too high";
+                }
+                message.innerHTML = "Input is " + x;
+
+            }
+            catch (err) {
+                message.innerHTML = "Input is " + err;
+            }
+            finally {
+                document.getElementById("demo").textContent = x;
+            }
+        }
+
+        //range error
+        let num = 1;
+        try {
+            let p = num.toPrecision(500);//toPrecision function can only take argument from 0 to 100
+            document.getElementById("prange").textContent = p;
+        }
+        catch (err) {
+            document.getElementById("prange").textContent = err.name;
+        }
+
+        //reference error
+        let x = 5;
+        try {
+            x = y + 1;//y is not  defined
+        }
+        catch (err) {
+            document.getElementById("preference").textContent = err.name;
+        }
+
+        //syntax error
+        try {
+            eval("alert('Hello)");//missing '
+        }
+        catch (err) {
+            document.getElementById("psyntax").textContent = err;
+        }
+
+        //type error
+        let numType = 1;
+        try {
+            numType.toUpperCase();//you cannot convert a number to upper case
+        }
+        catch (err) {
+            document.getElementById("ptype").textContent = err;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive web pages</title>
+    <style>
+        .img{
+            width: 50vw;
+            height: 40vw;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .btn{
+            font-size: 3vw;
+        }
+        #srcname{
+            font-size: 2vw;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <img id="img" class="img" src="images/image-01.png">
+    <br>
+    <br>
+    <button class="btn" onclick="changeImg()">Change</button>
+    <p id="srcname"></p>
+    </center>
+    <script type="text/javascript">
+        
+        var para = document.getElementById("srcname");
+        var img  = document.getElementById("img");
+        var imgsrc = img.getAttribute('src');
+        para.innerHTML = imgsrc;
+
+        function changeImg(){
+            var para = document.getElementById("srcname");
+            var img  = document.getElementById("img");
+            var imgsrc = img.getAttribute('src');
+      
+            if(imgsrc=="images/image-01.png"){
+                img.setAttribute('src','images/flower.png');
+                imgsrc = img.getAttribute('src');
+                para.innerHTML = imgsrc;
+            }else if(imgsrc=="images/flower.png"){
+                img.setAttribute('src','images/bg.jpg');
+                imgsrc = img.getAttribute('src');
+                para.innerHTML = imgsrc;
+            }else if(imgsrc == "images/bg.jpg"){
+                img.setAttribute('src','images/bg1.jpg');
+                imgsrc = img.getAttribute('src');
+                para.innerHTML = imgsrc;
+            }else if(imgsrc == "images/bg1.jpg"){
+                img.setAttribute('src','images/logo.png');
+                imgsrc = img.getAttribute('src');
+                para.innerHTML = imgsrc;
+            }else if(imgsrc == "images/logo.png"){
+                img.setAttribute('src','images/image-01.png');
+                imgsrc = img.getAttribute('src');
+                para.innerHTML = imgsrc;
+            }
+           
+        }
+    </script>
+</body>
+</html>

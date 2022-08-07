@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input{
+            margin: 30px 0px 0px 30px;
+            font-size: 3vw;
+        }
+        .btn{
+            margin-left: 30px;
+            background-color:lavender;
+            font-size: 2.8vw;
+        }
+        #pshowinfo{
+         color:dimgray 
+        }
+        #error{
+            font-size: 3.5vw;
+            margin-left: 30px;
+            color: rgb(134, 78, 78);
+        }
+        #animate{
+          width: 50px;
+          height: 50px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+          margin-bottom: 300px;
+          background-color: rgb(165, 124, 162);
+        }
+        .animate{
+          animation-duration: 20s;
+          animation-iteration-count: 1;
+          animation-name: skew_animation;
+        }
+ 
+        @keyframes skew_animation {
+            0%{
+                transform: translatex(0px);
+            }
+            10%{
+                transform: translatex(200px);
+            }
+            20%{
+                
+                transform: translate(200px,200px);
+            }
+            30%{
+                
+                transform: translate(-200px,200px);
+            }
+            40%{
+                
+        
+                transform: translatex(-200px);
+            }
+            50%{
+                transform: translatex(0px);
+            }
+      }
+      #animatebtn{
+        background-color:lavender;
+        font-size: 2.8vw;
+        float: left;
+        margin-left: 20px;
+        margin-right: 250px;
+        
+      }
+      #animatebtn1{
+        background-color:lavender;
+        font-size: 2.8vw;
+        display: inline-block;
+    
+      }
+    </style>
+</head>
+<body>
+    <form action="index.php" method="post" onsubmit="return validate()">
+        <input type="text" id="input" name="fname"  onmouseenter="showinfo()" onmouseleave="hideinfo()" onclick="hideerror()" >
+        <label id="pshowinfo"></label>
+        <br>
+        <br>
+        <input class="btn" type="submit" value="submit" >
+        <br>
+        <br>
+        <label id="error"></label>
+    </form>
+
+    <div id="animate"></div>
+    <button id="animatebtn" onclick="animateitem()">Animate</button>
+    <button id="animatebtn1" onclick="disanimateitem()">Disable animation</button>
+
+    <script type="text/javascript">
+        function showinfo(){
+            document.getElementById("pshowinfo").textContent = "Enter username in the text box";
+        }
+
+        function hideinfo(){
+            document.getElementById("pshowinfo").textContent = "";
+        }
+
+        function validate(){
+            var input = document.getElementById("input").value;
+            var error = document.getElementById("error");
+            if(input==""){
+                error.innerHTML = "Please fill text box !";
+                return false;
+            }
+            else if(input.length>10){
+                error.innerHTML = "Length of username can't be larger than 10.";
+                return false;
+            }
+        }
+
+        function hideerror(){
+            var error = document.getElementById("error").textContent="";
+        }
+
+        function animateitem(){
+            var animate = document.getElementById("animate");
+            animate.className = "animate";
+            
+        }
+        function disanimateitem(){
+            var animate = document.getElementById("animate");
+            animate.className = "";
+            
+        }
+    </script>
+</body>
+</html>
