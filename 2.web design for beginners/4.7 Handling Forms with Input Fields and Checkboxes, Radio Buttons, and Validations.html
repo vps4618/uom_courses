@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form  validations</title>
+</head>
+<body>
+
+    
+    <h2>Input text field validation</h2>
+    <form name="myForm" action="/action_page.php" onsubmit="return validateTextField()" method="post">
+        Name : <input type="text" name="fname">
+        <input type="submit" value="Submit">
+    </form>    
+
+    <h2>Checkbox validation</h2>
+    <form id="form">
+        <input type="checkbox" id="checkbox">
+        <button type="submit">Submit</button>
+     
+    </form>
+    <h5 id="message"></h5>
+
+    <h2>Radio button validation</h2>
+    <form name="comment" action="#" method="post">
+        Gender:
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female
+        <input type="submit" name="SubmitButton" value="Submit" onclick="return validateRadioButton(this.form)">
+        <input type="reset" value="Reset">
+    </form>
+
+    <script>
+        //text field validation
+        function validateTextField() {
+            let x = document.forms["myForm"]["fname"].value;
+            if(x==""){
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+
+        //checkbox validation
+        const form = document.getElementById("form");
+        const checkbox = document.getElementById("checkbox");
+        const message = document.getElementById("message");
+
+        form.addEventListener('submit',function validateCheckBox(e) {
+            e.preventDefault();
+            if(checkbox.checked == true){
+                message.innerHTML = "Done";
+            }else{
+                message.innerHTML = "Please check something !";
+            }
+        })
+
+        //radio button validation
+        function validateRadioButton(form){
+ 
+            if((form.gender[0].checked == false) && (form.gender[1].checked == false)){
+                alert("Please select your gender");
+                return false;
+            }
+      
+        }
+    </script>
+</body>
+</html>
