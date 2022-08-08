@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery of hiking places</title>
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="gallery.css">
+</head>
+<body>
+    <header>
+        <ul id="up">
+            <li><a href="index.html"style="background-color: green;" class="active">Home</a></li>
+            <li><a href="places.html">Places</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="things_to_do.html">Things to do</a></li>
+            <li><a href="about_us.html">About us</a></li>
+        </ul>  
+        
+        </header>
+        <h1 class="heading">Gallery of hiking places</h1>
+        <img src="images/gallery/bakersfall1.jpg" class="img" id="img"  onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+        <button class="btn" onclick="change()">change</button>
+        <p id="name"></p>
+        <a href="#up"><img src="images/up.png" class="upimg"></a>
+        <footer>
+            <p>&copy;2022. VPS</p>
+        </footer>
+        <script src="gallery.js"></script>
+ 
+</body>
+</html>
