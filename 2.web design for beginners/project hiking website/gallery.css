@@ -39,5 +39,11 @@ html {
     width: 5%;
     margin-left: 80%;
     position: fixed;
-    bottom: 5%;
+    bottom: 10%;
 }
+
+.tblimg{
+    width: 32%;
+}
+
+
