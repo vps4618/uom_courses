@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--we must have to load jquery before loading others-->
+    
+    <!--offline mode-->
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <!--online mode-->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    -->
+</head>
+<body>
+    <p id="pid">This is a sample text</p>
+    <p id="pid1"></p>
+    <script>
+    $(document).ready(function(){
+        //accesing paragraph in normal js 
+        document.getElementById("pid").onclick = function(){
+            alert("clicked the paragraph");
+        };
+
+        //accessing paragraph in jquery
+        //$(selector).action();
+        $('#pid').mouseenter(function(){
+            $('#pid1').text("mouse enterd on me");
+        });
+        $('#pid').mouseleave(function(){
+            $('#pid1').text("");
+        });
+    }); 
+    </script>
+</body>
+</html>
