@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery selectors</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>using element name</h2>
+    <p>This is sample paragraph.</p>
+    <p>This is another sample paragraph.</p>
+    
+    <h2>using element id</h2>
+    <h4 id="heading">Vishwa Praveen</h4>
+
+    <h2>using element attribute</h2>
+    <a href="#" id="h">Web</a>
+
+    <script>
+        $(document).ready(function(){
+            //using element name
+            $('p').click(function(){
+                $('p').text('hi');
+            });
+
+            //using element ids
+            $('#heading').click(function(){
+                $('#heading').hide();
+            });
+
+            //using element attributes 
+            //$('[class="anchor"]').hide();
+            $('[href="#"]').click(function(){
+                var a = document.getElementById("h");
+                a.style.color = "green";
+            });
+        });
+    </script>
+
+</body>
+</html>
