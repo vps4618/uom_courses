@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Effects</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        #shtpara1{
+            background-color: lightgreen;
+            padding: 10px;
+            display: none;
+        }
+        #shtpara2{
+            background-color: lightblue;
+            padding: 10px;
+            display: none;
+        }
+        #shtpara3{
+            background-color: lightgrey;
+            padding: 10px;
+            display: none;
+        }
+        #fpara1{
+            background-color: lightgreen;
+            padding: 10px;
+            display: none;
+        }
+        #fpara2{
+            background-color: lightblue;
+            padding: 10px;
+            display: none;
+        }
+        #fpara3{
+            background-color: lightgrey;
+            padding: 10px;
+            display: none;
+        }    
+        
+        #slidebanner{
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            background-color: black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 0px;
+            border: 0.5px solid white;
+        }
+        #slidecontent{
+            background-color: black;
+            padding-top: 20px;
+            color: white;
+            height: 230px;
+            width: 100%;
+            text-align: justify;
+            border-radius: 10px;
+            display: none;
+            margin: 0px;
+        }
+        #animation{
+            background-color: lightgreen;
+            width:80px;
+            height: 80px;
+            margin-left: 20px;
+            border:5px solid green;
+        }
+    </style>
+</head>
+<body>
+    <!--show hide toggle effects-->
+    <h3>show hide toggle effects</h3>
+    <button id="showbtn">show</button>
+    <button id="hidebtn">hide</button>
+    <button id="togglebtn">Toggle</button>
+    <hr>
+    <p id="shtpara1">speed fast</p>
+    <p id="shtpara2">speed slow</p>
+    <p id="shtpara3">speed 3000ms</p>
+    <hr>
+
+    <!--fadein fadeout fadetoggle fadeto effects-->
+    <h3>fade effects</h3>
+    <button id="fadeinbtn">fadein</button>
+    <button id="fadeoutbtn">fadeout</button>
+    <button id="fadetogglebtn">fadetoggle</button>
+    <button id="fadetobtn">fadeto</button>
+    <hr>
+    <p id="fpara1">speed fast</p>
+    <p id="fpara2">speed slow</p>
+    <p id="fpara3">speed 3000ms</p>
+    <hr>
+    
+    <!--slide effects-->
+    <h3>slide effects</h3>
+    <button id="slidedownbtn">SlideDown</button>
+    <button id="slideupbtn">SlideUp</button>
+    <button id="slidetogglebtn">SlideToggle</button>
+    <hr>
+    <p id="slidebanner">slide banner</p>
+    <p id="slidecontent">Hi my name is Vishwa Praveen Sarathchandra.I am 17 years old.My school is Taxila Central Collage Horana.I have one younger brother and one younger sister.My brother's name is Chathun Janeesha.My sister's name is Senudi Dinujana.My father is a businessman and his name is Pradeep Sarathchandra.My mother is a housewife and her name is Pathma.I live Urugala,Ingirya.I doing Maths for my A/Ls.My hobby is programming.I studying C#,Python,JavaScript,HTML,CSS,PHP and Sql.</p>
+    <hr>
+
+    <!--jquery animations
+        jquery chaining-->
+
+    <h3>jquery animations and chaining</h3>
+    <button id="animatebtn">Animate</button>
+    <button id="resetbtn">Reset</button>
+    <hr>
+    <div id="animation"></div>
+    
+    <script>
+        $(document).ready(function(){
+
+            //show hide toggle effects
+            $('#showbtn').on("click",function(){
+                $('#shtpara1').show("fast");
+                $('#shtpara2').show("slow");
+                $('#shtpara3').show(3000);
+            });
+
+            $('#hidebtn').on("click",function(){
+                $('#shtpara1').hide("fast");
+                $('#shtpara2').hide("slow");
+                $('#shtpara3').hide(3000);
+            });
+
+            $('#togglebtn').on("click",function(){
+                $('#shtpara1').toggle("fast");
+                $('#shtpara2').toggle("slow");
+                $('#shtpara3').toggle(3000);
+            });
+
+            //fade effects
+            $('#fadeinbtn').click(function(){
+                $('#fpara1').fadeIn("fast");
+                $('#fpara2').fadeIn("slow");
+                $('#fpara3').fadeIn(3000);
+            });
+
+            $('#fadeoutbtn').click(function(){
+                $('#fpara1').fadeOut("fast");
+                $('#fpara2').fadeOut("slow");
+                $('#fpara3').fadeOut(3000);
+            });
+
+            $('#fadetogglebtn').click(function(){
+                $('#fpara1').fadeToggle("fast");
+                $('#fpara2').fadeToggle("slow");
+                $('#fpara3').fadeToggle(3000);
+            });
+
+            $('#fadetobtn').click(function(){
+                $('#fpara1').fadeTo("fast",0.5);
+                $('#fpara2').fadeTo("slow",0.5);
+                $('#fpara3').fadeTo(3000,0.5);
+            });
+
+            //silde effect
+            $('#slidedownbtn').on("click",function(){
+                $('#slidecontent').slideDown(4000);
+            });
+            
+            $('#slideupbtn').on("click",function(){
+                $('#slidecontent').slideUp(2000);
+            });
+
+            $('#slidetogglebtn').on("click",function(){
+                $('#slidecontent').slideToggle(3000);
+            });
+
+
+            //jquery animations
+            //jquery chaining
+            $('#animatebtn').on("click",function(){
+                $('#animation').animate({
+                    width:"120px",
+                    height:"120px",
+                    marginLeft:"200px",
+                    borderWidth:"10px",
+                    opacity:"0.5"
+                });
+
+                //chain
+                $('#resetbtn').on("click",function(){
+                    $('#animation').animate({
+                        width:"80px",
+                        height:"80px",
+                        marginLeft:"20px",
+                        borderWidth:"5px",
+                        opacity:"1"
+                    }).fadeOut("slow").fadeIn(1000);
+
+                });
+            });
+        });
+    </script>
+</body>
+</html>
