@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery events </title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h3>click event</h3>
+    <p>When you click below button it will disapper</p>
+    <button id="clickbtn">Click me</button>
+    <hr>
+    
+    <h3>double click event</h3>
+    <p>When you double click below button it will disapper</p>
+    <button id="doubleclickbtn">Double Click me</button>
+    <hr>
+
+    <h3>hover event</h3>
+    <p>When you hover on below paragraph it's bg color will change</p>
+    <p id="hoverpara">Hover on me</p>
+    <hr>
+
+    <h3>mouse enter and mouse leave events</h3>
+    <p>When you enter or leave mouse on below paragraph it's bg color will change</p>
+    <p id="mousepara">Get your mouse on me</p>
+    <hr>
+    <br>
+    <br>
+
+    <h3>On method</h3>
+    <p>When you click on below paragraph it will hide</p>
+    <p id="hidepara">click me</p>
+    <hr>
+
+    <h3>Multiple events binding</h3>
+    <p>When you enter or leave mouse on below button it's font-size will change</p>
+    <button id="fontbtn">Get your mouse on me</button>
+    <hr>
+
+    <h3>Event binding using named functions</h3>
+    <p>when you hover on button it will rotate</p>
+    <button id="rotatebtn">Hover on me</button>
+    <hr>
+    <script>
+        $(document).ready(function(){
+
+            $('#mousepara').css('background-color','lightgreen');
+
+            //click event
+            $('#clickbtn').click(function(){
+                $(this).hide();
+            });
+
+            //double click event
+            $('#doubleclickbtn').dblclick(function(){
+                $(this).hide();
+            });
+
+            //hover event
+            $('#hoverpara').hover(function(){
+                $(this).css('background-color','pink');
+            });
+
+            //mouse enter and leave events
+            $('#mousepara').mouseenter(function(){
+                $(this).css('background-color','lightblue');
+            });
+
+            $('#mousepara').mouseleave(function(){
+                $(this).css('background-color','lightgreen');
+            });
+
+
+            //on() method
+            $('#hidepara').on("click",function(){
+                $(this).hide();
+            });
+
+            //Multiple events binding
+            $('#fontbtn').on({
+                mouseenter:function(){
+                    $(this).css("font-size","20px");
+                },
+                mouseleave:function(){
+                    $(this).css("font-size","15px");
+                }
+            });
+
+            //event binding using named functions
+            function rotating(){
+                $(this).css("transform","rotate(90deg)");
+            }
+
+            $("#rotatebtn").on("click",rotating);
+
+        });
+        //keyboard press
+        /*
+        $(window).keypress(function(e){
+            if(e.which == 13){
+                alert("ÿou pressed enter");
+            };
+        });
+        */
+    </script>
+</body>
+</html>
