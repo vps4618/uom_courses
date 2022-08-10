@@ -174,15 +174,19 @@
 
             //jquery animations
             //jquery chaining
+    
             $('#animatebtn').on("click",function(){
                 $('#animation').animate({
                     width:"120px",
                     height:"120px",
                     marginLeft:"200px",
                     borderWidth:"10px",
-                    opacity:"0.5"
-                });
+                    opacity:"0.5",                    
 
+                },5000);
+
+                
+            });
                 //chain
                 $('#resetbtn').on("click",function(){
                     $('#animation').animate({
@@ -191,11 +195,12 @@
                         marginLeft:"20px",
                         borderWidth:"5px",
                         opacity:"1"
-                    }).fadeOut("slow").fadeIn(1000);
+                    },2000).fadeOut("slow").fadeIn(1000);
 
                 });
+
             });
-        });
+      
     </script>
 </body>
 </html>
