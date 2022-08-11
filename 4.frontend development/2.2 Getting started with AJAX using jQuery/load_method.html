@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>load method</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Animal world</h1>
+    <div id="loading_content">
+    </div>    
+    <script>
+        function callback(response,statusTxt,xhr){
+            if(statusTxt=="success"){
+                alert("content loaded successfully");
+            }else if(statusTxt =="error"){
+                alert("Error : "+xhr.status+" "+xhr.statusTxt);
+            }
+        }
+        
+        $(document).ready(function(){
+            $('#loading_content').load('demo_test.html',callback);
+        });
+    </script>
+</body>
+</html>
