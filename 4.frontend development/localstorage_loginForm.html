@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <h1 id="nameheading"></h1>
+    <button id="logout">Logout</button>
+    <div class="form">
+        <input type="text" id="input" placeholder="enter your name">
+        <button>Submit</button>
+        <p></p>
+    </div>
+ <script>
+
+    $(document).ready(function(){
+        var myHeading = document.getElementById('nameheading');
+        myHeading.textContent = "hi "+localStorage.getItem('name');
+        $('.form').hide();
+
+        if(localStorage.getItem('name')==null){
+            $('#nameheading').hide();
+            $('#logout').hide();
+            $('.form').show();
+        }
+
+        $('button').click(function(){
+            if($('#input').val()==""){
+                $('p').text("please enter your name");
+            }else{
+                var item = $('#input').val();
+                localStorage.setItem('name',item);
+                $('.form').hide();
+                myHeading.textContent = "hi "+item;
+                $('#nameheading').show();
+                $('#logout').show();
+            }
+        });
+
+        $('#logout').click(function(){
+            localStorage.removeItem('name');
+            $('#nameheading').hide();
+            $('#logout').hide();
+            $('.form').show();
+            $('#input').show();
+            var input = document.getElementById("input");
+            input.value = "";
+            $('p').text("");
+        });
+
+    });
+    </script>
+</body>
+</html>
