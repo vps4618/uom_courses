@@ -14,23 +14,29 @@
     <button id="logout">Logout</button>
     <div class="form">
         <input type="text" id="input" placeholder="enter your name">
-        <button>Submit</button>
+        <button id="submit">Submit</button>
         <p></p>
     </div>
  <script>
 
     $(document).ready(function(){
-        var myHeading = document.getElementById('nameheading');
-        myHeading.textContent = "hi "+localStorage.getItem('name');
-        $('.form').hide();
 
+        
+        var myHeading = document.getElementById('nameheading');
+
+        //checking local storage whether key-name is null
         if(localStorage.getItem('name')==null){
             $('#nameheading').hide();
             $('#logout').hide();
             $('.form').show();
+        }else{
+        //initially update heading text    
+        myHeading.textContent = "hi "+localStorage.getItem('name');
+        $('.form').hide();
         }
 
-        $('button').click(function(){
+        //do a action after clicking submit button in form
+        $('#submit').click(function(){
             if($('#input').val()==""){
                 $('p').text("please enter your name");
             }else{
@@ -43,6 +49,7 @@
             }
         });
 
+        //remove localstorage item after clicking logout button
         $('#logout').click(function(){
             localStorage.removeItem('name');
             $('#nameheading').hide();
