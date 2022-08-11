@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unobstrusive validate</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.validate.unobtrusive.js"></script>
+    <style>
+        #firstname{
+            margin-top: 10px;
+        }
+        form{
+            padding-top: 10px;
+            background-color: rgb(209, 208, 208);
+            width: 200px;
+            padding-bottom: 10px;
+        }
+        label{
+            color: red;
+            display: block;
+        }
+        input{
+            border-radius: 3px;
+            border:1px solid grey;
+            margin-bottom: 10px;
+        }
+        #submitbtn{
+            display: block;
+        }
+        h3{
+            text-align: center;
+        }
+        #label{
+            color: black;
+            text-align: left;
+            margin-left: 15px;
+        }
+        span{
+            color: red;
+            margin: 20px 0px 20px 0px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h3>Unobstrusive validation</h3>
+    <!--validate using html attributes-->
+    <center>
+    <form action="action.php" method="post" name="registration2">
+        <label id="label" for="firstname" id="firstname">First Name : </label>
+        
+        <input type="text" placeholder="enter first name" data-val-required="Your name is required" data-val="true" name="firstname">
+        
+        <span data-valmsg-for="firstname" data-valmsg-replace="true"></span>
+        
+        <label id="label" for="email">Email : </label>
+        
+        <input placeholder="enter email" type="email" data-val-required="Your email address is required." data-val="true" data-val-email="please enter a valid email address" name="email">
+        
+        <span data-valmsg-for="email" data-valmsg-replace="true"></span>
+        
+        <label id="label" for="password">Password : </label>
+        
+        <input type="password" placeholder="enter password" id="password" data-val-required="password required" data-val="true"
+        data-val-maxlength="password must have charactors below 10" data-val-maxlength-max="10" data-val-minlength = "password must have charactors above 5" data-val-minlength-min = "5" name="password">
+        
+        <span data-valmsg-for="password" data-valmsg-replace="true"></span>
+
+        <label  id="label" for="confirmpassword">Confirm Password : </label>
+        
+        <input type="password" placeholder="enter confirm password" data-val-required="Confirm password required" data-val="true"
+        data-val-maxlength="confirm password must have charactors below 10" data-val-maxlength-max="10" data-val-minlength = "confirm password must have charactors above 5" data-val-minlength-min = "5" name="confirmpassword">
+        
+        <span data-valmsg-for="confirmpassword" data-valmsg-replace="true"></span>
+
+        <input type="submit" value="submit" id="submitbtn">
+    </form>
+    </center>
+
+</body>
+</html>

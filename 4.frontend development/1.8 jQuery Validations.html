@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation using jquery</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.validate.unobtrusive.js"></script>
+    <style>
+        #firstname{
+            margin-top: 10px;
+        }
+        form{
+            padding-top: 10px;
+            background-color: rgb(209, 208, 208);
+            width: 200px;
+            padding-bottom: 10px;
+        }
+        label{
+            color: red;
+            display: block;
+        }
+        input{
+            border-radius: 3px;
+            border:1px solid grey;
+            margin-bottom: 10px;
+        }
+        #submitbtn{
+            display: block;
+        }
+        h3{
+            text-align: center;
+        }
+        #label{
+            color: black;
+            text-align: left;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Jquery form validation plugin</h3>
+    <center>
+    <form action="action.php" method="post" name="registration">
+        
+        <label id="label" for="firstname" id="firstname">First Name : </label>
+        <input type="text" name="firstname" placeholder="enter first name">
+        <label id="label" for="email">Email : </label>
+        <input  name="email" placeholder="enter email" type="email">
+        <label id="label" for="password">Password : </label>
+        <input type="password" name="password" placeholder="enter password" id="password">
+        <label  id="label" for="confirmpassword">Confirm Password : </label>
+        <input type="password" name="confirmpassword" placeholder="enter confirm password">
+        <input type="submit" value="submit" id="submitbtn">
+    </form>
+    </center>
+
+   
+    <script>
+        //jquery validate plugin
+        $(document).ready(function(){
+            $("form[name='registration']").validate({
+                rules:{
+                    //firstname,password are name attribute values
+                    firstname:"required",
+                    email:{
+                        required:true,
+                        email:true
+                    },
+                    password:{
+                        required:true,
+                        minlength:5
+
+                    },
+                    confirmpassword:{
+                        required:true,
+                        minlength:5,
+                        equalTo:"#password"
+                    }
+                },
+                messages:{
+                    firstname:"Please enter your firstname",
+                    email:{
+                        required:"please enter your email address",
+                        email:"please enter a valid email address"
+                    },
+                    password:{
+                        required:"please provide a password",
+                        minlength:"Your password must be consist of at least 5 characters"
+                    },
+                    confirmpassword:{
+                        required:"please re enter the password",
+                        minlength:"Your re entered password must be consist of at least 5 characters",
+                        equalTo:"Your re enterd password must be equal to password"
+                    }
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
