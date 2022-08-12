@@ -1,0 +1,6 @@
+I'm new to angular, and just ran into the same issue. You can open up and run the Index.html file in the browser directly from the file system, but you have to edit the path of the base href attribute in Index.html from:
+
+<base href="/">
+to:
+
+<base href="./">
