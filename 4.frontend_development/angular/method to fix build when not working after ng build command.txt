@@ -4,3 +4,8 @@ I'm new to angular, and just ran into the same issue. You can open up and run th
 to:
 
 <base href="./">
+
+
+
+//2nd method
+ng build --base-href="./"
