@@ -1,0 +1,10 @@
+angular cli commands
+---------------------------
+ng new project-name //new project
+ng serve //run project
+ng build //build project
+ng g c component-name //create a new component 
+
+
+//npm commands
+npm install bootstrap //install bootstrap 
