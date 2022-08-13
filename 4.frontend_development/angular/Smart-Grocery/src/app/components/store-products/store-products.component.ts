@@ -29,5 +29,8 @@ export class StoreProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //interpolation by using simple properties
+  public firstProductItemName = "White Basmathi Rice";
+  public quantityOfRice = 75;
 
 }

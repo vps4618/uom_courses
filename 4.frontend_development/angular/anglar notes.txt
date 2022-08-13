@@ -1,0 +1,60 @@
+4.8 Angular Interpolation
+-------------------------
+1.In angular interpolation we use double curly braces -> {{}}
+2.We also specify custom delimiter by using interpolation option in the @Component decorator
+
+eg :- @Component({
+    template:'<h1>Welcome ?username? </h1>',
+    interpolation:['?','?']
+})
+    export class AppComponent{
+        public username = 'Nimali';
+    }
+3.command for install bootsrap - npm install bootsrap
+4.command for install fontawsome - npm install font-awesome --save
+
+    after install font-awesome we have to add its path to anugular.json
+    eg:-"styles":[
+        "node_modules/font-awesome/css/font-awesome.css"
+    ]
+5.private,protected and public keywords can use in properties in typescript
+    eg:-private username = 'Vishwa'; //only accessible within class
+        public username = 'Vishwa'; //accessible anywhere
+        protected username = 'Vishwa' //accessible only within class and its subclasses
+
+* So it is clear that we want to use public keywordin property for interpolation        
+
+6.we can perform arithmatic operations in interpolation
+    eg:- <!--will show 400-->
+         <h1>{{2*200}}</h1>
+
+7.assignment operator cannot use in interpolation
+    eg:- <!--will show an error in terminal-->
+         <h1>{{p=2*200}}</h1>
+
+8.we cannot also use increment operator in interpolation
+    eg:-
+        component class
+        ------------------------
+        public quantityOfRice = 75;
+    _____________________________________ 
+        html template
+        ----------------------
+        <!--will show error-->
+        <h1>{{quantityOfRice++}}</h1>
+
+ *so that we can use <h1>{{quantityOfRice+1}}</h1> for increment                
+
+9.show values by methods in interpolation
+    eg:-
+        component class
+        ------------------------
+        public getQuantityOfRice(){
+            return 350;
+        }
+    _____________________________________ 
+        html template
+        ----------------------
+        <!--will show 350-->
+        <h1>{{getQuantityOfRice()}}</h1>
+

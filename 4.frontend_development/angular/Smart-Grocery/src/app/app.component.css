@@ -1,10 +1,8 @@
-.color{
-    background-color: rgb(33, 33, 117);
-}
+
 
 /*overiding bootstrap css by making same class
 it must to use keyword important to overide bootsrap*/
-.bg-primary{
+/* .bg-primary{
     background-color: rgb(129, 166, 236) !important;
-}
+} */
 
