@@ -1,0 +1,61 @@
+   Angular pipes
+====================
+
+#convert string to specific format
+
+1.types - DatePipe
+        UpperCasePipe
+        LowerCasePipe
+        CurrencyPipe
+        DecimalPipe
+        PercentPipe
+
+2.The Pipe Operator
+
+------------------------------
+        Html file
+-----------------------------
+<!-- pipe syntax {{ data | pipe-name }} -->
+<p>
+    We are using the Lowercase Pipe
+    {{ data | lowercase }} 
+</p>
+
+3.Use pipes with parameters
+
+# We can customize the format of our data using parameters
+
+eg :- 
+------------------------------
+        HTML file
+------------------------------
+<!-- Pipe syntax with parameters
+{{ data | pipe-name : "parameter-name" }} -->
+<p>
+    We are using the Data pipe with a parameter
+    {{ data | date : "MM/dd/yy" }}
+</p>
+
+3.pipe chaining
+
+# We can apply multiple pipes to the same data to apply combined formats 
+
+eg:-
+-----------------------------------
+        Html file
+-----------------------------------        
+<!-- syntax for pipe chaining 
+{{ data | pipe-name-01 | pipe-name-02 }} -->
+<p>
+    We are using both the Date pipe and the Lowercase Pipe
+    {{ data | date | lowercase }}
+</p>
+
+4.custom pipes
+
+------------------------
+    CLI command
+------------------------
+ng g pipe pipe-name
+
+eg:-ng g pipe my-custom-pipe

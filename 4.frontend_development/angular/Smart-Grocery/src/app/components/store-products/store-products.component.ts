@@ -25,7 +25,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,10 @@ export class StoreProductsComponent implements OnInit {
   //attributte directives
   public isLowInventory = false;
   public dhalStorage = 10;
+  
+  public isRowSelected:boolean | undefined;
+  public rowIndex!: number | undefined; //hence public rowIndex:number; not working we have to use | undefined. 
+//hence public rowIndex:number; not working we have to use | undefined. 
 
   public getDhalStorage(){
      if(this.dhalStorage<50){
@@ -49,32 +54,32 @@ export class StoreProductsComponent implements OnInit {
   public products = [{
     "productId":"001",
     "productName":"White Basmathi Rice",
-    "createdDate":"Jan 29, 2020",
-    "unitPrice":"Rs. 400",
+    "createdDate":"2020.01.29",
+    "unitPrice":"400",
     "quantity":100,
-    "productDescription":"White Basmathi Rice imported from pakistan"
+    "productDescription":"White Basmathi Rice imported from pakistan. High quality rice with extra fragnance. Organically grown."
   },
   {
     "productId":"002",
     "productName":"Flour",
-    "createdDate":"Jan 29, 2020",
-    "unitPrice":"Rs. 190",
+    "createdDate":"2020.01.29",
+    "unitPrice":"190",
     "quantity":50,
     "productDescription":"Super Fine Whole grain general Purpose flour"
   },
   {
     "productId":"003",
     "productName":"Sugar",
-    "createdDate":"Jan 29, 2020",
-    "unitPrice":"Rs. 200",
+    "createdDate":"2020.01.29",
+    "unitPrice":"200",
     "quantity":1200,
     "productDescription":"White sugar manufactured by Palwatte Factory"
   },
   {
     "productId":"004",
     "productName":"Dhal",
-    "createdDate":"Jan 29, 2020",
-    "unitPrice":"Rs. 200",
+    "createdDate":"2020.01.29",
+    "unitPrice":"200",
     "quantity":10,
     "productDescription":"Imported mysoor dhal from India"
  }]
@@ -85,4 +90,10 @@ export class StoreProductsComponent implements OnInit {
    alert("saved");
  }
 
+ //selecting row
+public selectProduct(selectedRow:number){
+  this.isRowSelected = true;
+  this.rowIndex = selectedRow;
+  
+}
 }

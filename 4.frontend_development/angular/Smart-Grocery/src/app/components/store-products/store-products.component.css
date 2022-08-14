@@ -15,11 +15,16 @@ table tbody tr td{
     cursor:pointer;
 }
 
-tr:hover{
+table tbody tr.active td{
     background-color: #c8daf8;
 }
 
 .icon{
-    color:rgb(99, 98, 98);
+    color: rgb(99, 98, 98);
     margin: 5px;
+}
+
+.btn-xs{
+    margin: 1px;
+    border-radius: 2px;
 }

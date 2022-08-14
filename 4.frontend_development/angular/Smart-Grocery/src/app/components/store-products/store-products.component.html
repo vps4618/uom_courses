@@ -32,23 +32,30 @@
                     -->
 
                     <!--ngFor-->
-                    <tr *ngFor="let product of products">
+                    <!--when a row clicked its bg  color will change-->
+                    <tr *ngFor="let product of products let i = index" (click)="selectProduct(i)" [ngClass]="rowIndex == i ? 'active' : '' ">
                         <th scope="row">{{product.productId}}</th>
                         <td>{{product.productName}}</td>
-                        <td>{{product.productDescription}}</td>
-                        <td>{{product.createdDate}}</td>
-                        <td>{{product.unitPrice}}</td>
+                        <!-- custom pipe -->
+                        <td>{{product.productDescription | contentLimiter}}</td>
+                        <!-- date pipe with parameters
+                        <td>{{product.createdDate | date : "MM/dd/yy"}}</td> -->
+                        
+                        <!--pipe chaining-->
+                        <td>{{product.createdDate | date | uppercase}}</td>
                         <td>{{product.quantity}}</td>
+                        <!--currency pipe with parameters-->
+                        <td>{{product.unitPrice | currency : "Rs."}}</td>
+                        
                         
                         <!--ngIf-->
                         <td>
                             <p *ngIf="product.quantity <= 50">Lower Inventory Level</p>
                             <p *ngIf="product.quantity > 50">Sufficient Inventory Level</p>    
                         </td>
-                        <td>
-                            <i class="fa fa-eye icon"></i>
-                            &nbsp;
-                            <i class="fa fa-pencil-square-o icon"></i>
+                        <td colspan=3>
+                            <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon"><i class="fa fa-eye"></i></button>
+                            <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon"><i class="fa fa-pencil-square-o"></i></button>
                         </td>
                         <!--
                             <div [ngStyle]=" country == 'SL' ? {'background-color': 'green'} : {'background-color': 'red'} ">My Country</div>
