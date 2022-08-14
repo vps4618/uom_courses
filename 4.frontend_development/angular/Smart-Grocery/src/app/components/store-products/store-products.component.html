@@ -58,4 +58,17 @@
             </table>
         </section>
     </div>
+    <!--
+    source-to-view data binding
+    ----------------------------
+    syntax -> [target] = "Expression"    
+
+    eg :- <button [disabled]="isUnchanged">Save</button>
+            *this will make button disabled when isChanged property set to true in component.ts file 
+    -->
+    <!--
+    view-to-source data binding
+    -----------------------------
+    <button (click)="onSave()">save</button>
+    -->
 </div>

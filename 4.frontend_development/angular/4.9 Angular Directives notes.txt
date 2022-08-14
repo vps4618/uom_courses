@@ -1,0 +1,143 @@
+
+Angular directives (commands)
+===========================
+
+1. component directives
+
+eg :-
+
+app.component.ts
+------------------------
+` @Component({
+    selector:'app-root'
+}) `
+
+app.component.html
+-------------------------
+<app-root></app-root>
+
+
+2.attribute directives
+
+    i.ngClass
+    eg :-
+            -----------------------------------------
+            inside component.ts file's component class
+            --------------------------------------------
+              //attributte directives
+              public isLowInventory = false;
+              public dhalStorage = 10;
+
+             public getDhalStorage(){
+                if(this.dhalStorage<50){
+                    this.isLowInventory = true;
+                }
+
+                return this.dhalStorage;
+             }
+            -----------------------------
+            inside component.html file
+            -----------------------------
+            <!--will show cell in red color due to isLowInventory is true 
+                1.ternary operator (?) use to check boolean values
+                   ? -> means is true
+            -->
+            <td [ngClass]="isLowInventory ? 'bg-danger' : ''">{{getDhalStorage()}}</td>
+
+    ii.ngStyle 
+    eg :-
+            -----------------------------------------
+            inside component.ts file's component class
+            --------------------------------------------
+              //attributte directives
+              public isLowInventory = false;
+              public dhalStorage = 10;
+
+             public getDhalStorage(){
+                if(this.dhalStorage<50){
+                    this.isLowInventory = true;
+                }
+
+                return this.dhalStorage;
+             }
+            -----------------------------
+            inside component.html file
+            -----------------------------
+            <!--will show cell in red color due to isLowInventory is true 
+            -->
+           <td [ngStyle]="isLowInventory ? {'background-color':'red'} : {}">{{getDhalStorage()}}</td>
+
+            <!--
+            <div [ngStyle]=" country == 'SL' ? {'background-color': 'green'} : {'background-color': 'red'} ">My Country</div>
+            --> 
+                
+    iii.ngModel
+
+3.Structural directives
+    
+    i.ngFor
+   
+    eg :-
+            -----------------------------------------
+            inside component.ts file's component class
+            --------------------------------------------
+            //structural directives
+            public products = [{
+                "productId":"001",
+                "productName":"White Basmathi Rice",
+                "createdDate":"Jan 29, 2020",
+                "unitPrice":"Rs. 400",
+                "quantity":100,
+                "productDescription":"White Basmathi Rice imported from pakistan"
+            },
+            {
+                "productId":"002",
+                "productName":"Flour",
+                "createdDate":"Jan 29, 2020",
+                "unitPrice":"Rs. 190",
+                "quantity":50,
+                "productDescription":"Super Fine Whole grain general Purpose flour"
+            },
+            {
+                "productId":"003",
+                "productName":"Sugar",
+                "createdDate":"Jan 29, 2020",
+                "unitPrice":"Rs. 200",
+                "quantity":1200,
+                "productDescription":"White sugar manufactured by Palwatte Factory"
+            },
+            {
+                "productId":"004",
+                "productName":"Dhal",
+                "createdDate":"Jan 29, 2020",
+                "unitPrice":"Rs. 200",
+                "quantity":10,
+                "productDescription":"Imported mysoor dhal from India"
+            }]
+            -----------------------------
+            inside component.html file
+            -----------------------------
+            <!--ngFor-->
+            <tr *ngFor="let product of products">
+                <th scope="row">{{product.productId}}</th>
+                <td>{{product.productName}}</td>
+                <td>{{product.productDescription}}</td>
+                <td>{{product.createdDate}}</td>
+                <td>{{product.unitPrice}}</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+
+    ii.ngIf
+
+    eg :-
+            ------------------------
+            inside component.html file
+            -----------------------------
+            <!--ngIf-->
+            <td>
+                <p *ngIf="product.quantity <= 50">Lower Inventory Level</p>
+                <p *ngIf="product.quantity > 50">Sufficient Inventory Level</p>    
+            </td>
+                        
+   iii.ngSwitch                     
+                

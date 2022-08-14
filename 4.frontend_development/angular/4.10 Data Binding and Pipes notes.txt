@@ -1,0 +1,125 @@
+data binding
+----------------------------
+1.source-to-view data binding
+syntax -> [target] = "Expression"    
+
+eg :- 
+        -------------------------------------------
+        inside component.ts file's component class
+        ------------------------------------------
+        
+        public isUnchanged = true;
+
+        --------------------------
+        inside component.html file
+        --------------------------     
+        
+        <!--bind button disabled state to isUnchanged property-->
+
+        <button [disabled]="isUnchanged">Save</button>
+        
+        <!--this will make button disabled when isChanged property set to true in component.ts file-->
+
+2.view-to-source data binding
+
+syntax -> (target) = "statement"
+
+eg:- 
+        -------------------------------------------
+        inside component.ts file's component class
+        ------------------------------------------
+        
+        public onSave(){
+            alert("saved");
+        }
+
+        --------------------------
+        inside component.html file
+        --------------------------     
+        
+        <!--bind event 'click' to the method onSave()-->
+
+        <button (click)="onSave()">Save</button>
+
+3.two  way data binding (view-to-source-to-view)
+
+syntax -> [(target)] = "expression"
+
+eg:- 
+        --------------------------
+        inside component.html file
+        --------------------------     
+        
+        <app-sizer [(size)]="fontSizePx"></app-sizer>
+
+4.binding punctuations
+
+i.source-to-view -> []
+ii.view-to-source -> ()
+iii.view-to-source-to-view -> [()]
+
+5.property binding
+
+eg 1:- 
+        -------------------------------------------
+        inside component.ts file's component class
+        ------------------------------------------
+        public isUnchanged = true;
+        public itemImageUrl = "../assets/phone.png";
+
+        --------------------------
+        inside component.html file
+        --------------------------     
+        
+        <img [src] = "itemImageUrl">
+        <button [disabled]  = "isUnChanged">save</button>
+        
+eg 2:- 
+        -------------------------------------------
+        inside component.ts file's component class
+        ------------------------------------------
+        public classes = "special";
+        
+        --------------------------
+        inside component.html file
+        --------------------------     
+        <p [ngClass]= "classes">My name is Vishwa Praveen</p>
+        
+        -------------------------
+        inside component.css file
+        -------------------------
+        .special{
+            background-color:blue;
+        }
+
+6.property binding and interpolation
+
+eg:- 
+        -------------------------------------------
+        inside component.ts file's component class
+        ------------------------------------------
+        public itemImageUrl = "../assets/logo.png";
+        
+        --------------------------
+        inside component.html file
+        --------------------------     
+        <!--interpolation-->
+        <img src="{{itemImageUrl}}">
+
+        <!--property binding-->
+        <img [src] = "itemImageUrl">
+
+7.event binding
+
+eg:- 
+        -------------------------------------------
+        inside component.ts file's component class
+        ------------------------------------------
+        public onSave(){
+            //do something here when button is clicked
+        }
+        
+        --------------------------
+        inside component.html file
+        --------------------------     
+        <button (click) = "önSave()">Save</button>
