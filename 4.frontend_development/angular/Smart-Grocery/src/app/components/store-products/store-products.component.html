@@ -13,58 +13,47 @@
                     <th scope="col">Created Date</th>
                     <th scope="col">Quantity in kgs</th>
                     <th scope="col">Unit Price</th>
+                    <th scope="col">Availability</th>
                     <th scope="col">Product Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>{{firstProductItemName}}</td>
-                    <td>White Basmathi Rice imported from pakistan</td>
-                    <td>Jan 29, 2020</td>
-                    <td>{{quantityOfRice+1}}</td>
-                    <td>Rs. 400</td>
-                    <td>
-                        <i class="fa fa-eye icon"></i>
-                        <i class="fa fa-pencil-square-o icon"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>flour</td>
-                    <td>Super Fine Whole grain general Prupose Flour</td>
-                    <td>Jan 29, 2020</td>
-                    <td>50</td>
-                    <td>Rs. 190</td>
-                    <td>
-                        <i class="fa fa-eye icon"></i>
-                        <i class="fa fa-pencil-square-o icon"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Sugar</td>
-                    <td>White sugar manufactured by Palwatte Factory</td>
-                    <td>Jan 29, 2020</td>
-                    <td>1200</td>
-                    <td>Rs. 200</td>
-                    <td>
-                        <i class="fa fa-eye icon"></i>
-                        <i class="fa fa-pencil-square-o icon"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Dhal</td>
-                    <td>Imported mysoor dhal from India</td>
-                    <td>Jan 29, 2020</td>
-                    <td>10</td>
-                    <td>Rs. 200</td>
-                    <td>
-                        <i class="fa fa-eye icon"></i>
-                        <i class="fa fa-pencil-square-o icon"></i>
-                    </td>
-                </tr>
+                
+                    <!--ngclass directive
+                  --------------------------------
+                    1.ternary operator (?) use to check boolean values
+                        ? -> means is true
+                    <td [ngClass]="isLowInventory ? 'bg-danger' : ''">{{getDhalStorage()}}</td>
+                
+                        ngStyle
+                    ----------------
+                    <td [ngStyle]="isLowInventory ? {'background-color':'red'} : {}">{{getDhalStorage()}}</td>
+                    
+                    -->
+
+                    <!--ngFor-->
+                    <tr *ngFor="let product of products">
+                        <th scope="row">{{product.productId}}</th>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productDescription}}</td>
+                        <td>{{product.createdDate}}</td>
+                        <td>{{product.unitPrice}}</td>
+                        <td>{{product.quantity}}</td>
+                        
+                        <!--ngIf-->
+                        <td>
+                            <p *ngIf="product.quantity <= 50">Lower Inventory Level</p>
+                            <p *ngIf="product.quantity > 50">Sufficient Inventory Level</p>    
+                        </td>
+                        <td>
+                            <i class="fa fa-eye icon"></i>
+                            &nbsp;
+                            <i class="fa fa-pencil-square-o icon"></i>
+                        </td>
+                        <!--
+                            <div [ngStyle]=" country == 'SL' ? {'background-color': 'green'} : {'background-color': 'red'} ">My Country</div>
+                        -->    
+                    </tr>    
             </tbody>
             </table>
         </section>

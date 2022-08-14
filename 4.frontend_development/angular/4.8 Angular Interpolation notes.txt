@@ -58,3 +58,5 @@ eg :- @Component({
         <!--will show 350-->
         <h1>{{getQuantityOfRice()}}</h1>
 
+
+
