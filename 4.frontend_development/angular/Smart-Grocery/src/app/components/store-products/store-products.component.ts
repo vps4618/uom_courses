@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-store-products',
 
@@ -30,6 +29,9 @@ export class StoreProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  public showAddProduct:boolean | undefined;
+
   //interpolation by using simple properties
   public firstProductItemName = "White Basmathi Rice";
   public quantityOfRice = 75;
@@ -96,4 +98,14 @@ public selectProduct(selectedRow:number){
   this.rowIndex = selectedRow;
   
 }
+
+public showAddProducts(){
+  this.showAddProduct = true;
 }
+
+public hideAddProducts(){
+  this.showAddProduct= false;
+}
+
+}
+

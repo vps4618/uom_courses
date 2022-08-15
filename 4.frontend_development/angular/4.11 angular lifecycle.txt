@@ -1,0 +1,36 @@
+Lifecycle Event Sequence
+========================
+1.ngOnChanges()
+  > Checks if a component has external input values before rendering
+  > It is the first hook to be called if external inputs are present
+
+2.ngOnInit()
+  > Responds to the instantiation of the component
+  > It is called only once ,either as the first hook or after the first ngOnChanges()
+
+3.ngDoCheck()
+  > Checks for changes that angular can't automatically detect
+  > It is called immediately after every ngOnChanges() and the first ngOnInit()
+
+4.ngAfterContentInit()
+  > Checks if any external HTML needs to inserted into the component's view
+  > It is called once after ngDoCheck()
+
+5.ngAfterContentChecked()
+  > Responds to when external content is projected into the component's view
+  > It is called after ngAfterContentInit() and every ngDoCheck() that follows
+
+6.ngAfterViewInit()
+  > Responds after Angular initializes the views of the component and its child components
+  > It is called once after the first ngAfterContentChecked()
+
+7.ngAfterViewChecked()
+  > Responds after the content of the component views have been checked for changes
+  > It is called after ngAfterViewInit() and every ngAfterContentChecked() that follows
+
+8.ngOnDestroy()
+  > Handles the cleanup activites that need to be done before the component is destroyed
+  > It is called immediately before Angular destroys the component
+   
+
+    
