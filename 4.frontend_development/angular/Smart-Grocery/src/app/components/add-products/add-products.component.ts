@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-products',
@@ -6,38 +7,60 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-products.component.css']
 })
 export class AddProductsComponent implements OnInit {
+  constructor(private fb:FormBuilder) { }
 
-  constructor() { }
+  productForm =this.fb.group({
+    productName:['',Validators.required],
+    description : ['',Validators.required],
+    category : ['',Validators.required],
+    brand : ['',Validators.required],
+    expiredDate:['',Validators.required],
+    manufacturedDate : ['',Validators.required],
+    batchNumber : ['',Validators.required],
+    unitPrice : ['',[Validators.required,Validators.min(1)]],
+    quantity : ['',[Validators.required,Validators.min(50)]]
+  });
 
-  //angular life cycle hooks
   ngOnInit(): void {
-    alert("ngOnInit  called");
-    console.log("triggered ngOnInit")
+      
   }
+  
+  // //angular life cycle hooks
+  // ngOnInit(): void {
+  //   alert("ngOnInit  called");
+  //   console.log("triggered ngOnInit")
+  // }
 
-  ngDoCheck(){
-    console.log("triggered ngDoCheck");
-  }
+  // ngDoCheck(){
+  //   console.log("triggered ngDoCheck");
+  // }
 
-  ngAfterContentInit(){
-    console.log("triggered ngAfterContentInit");
-  }
+  // ngAfterContentInit(){
+  //   console.log("triggered ngAfterContentInit");
+  // }
 
-  ngAfterContentChecked(){
-    console.log("triggered ngAfterContentChecked");
-  }
+  // ngAfterContentChecked(){
+  //   console.log("triggered ngAfterContentChecked");
+  // }
 
-  ngAfterViewInit(){
-    console.log("triggered ngAfterViewInit");
-  }
+  // ngAfterViewInit(){
+  //   console.log("triggered ngAfterViewInit");
+  // }
 
-  ngAfterViewChecked(){
-    console.log("triggered ngAfterViewChecked");
-  }
+  // ngAfterViewChecked(){
+  //   console.log("triggered ngAfterViewChecked");
+  // }
 
-  ngOnDestroy(){
-    alert("ngOnDestroy Called");
-    console.log("triggered ngOnDestroy");
-  }
+  // ngOnDestroy(){
+  //   alert("ngOnDestroy Called");
+  //   console.log("triggered ngOnDestroy");
+  // }
+ isDataUploading:boolean = false;
+ onSubmit(){
 
+ }
+
+ get f(){
+   return this.productForm.controls;
+ }
 }

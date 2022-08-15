@@ -1,6 +1,6 @@
 <div class="container-fluid main-content">
     <div class="row">
-        <section [ngClass]="showAddProduct ? 'col-md-7' : 'col-md-12'" >
+        <section [ngClass]="showAddProduct ? 'col-md-5' : 'col-md-12'">
             <div class="product-header">
                 <h1>Product List</h1>
                 <button *ngIf="!showAddProduct" type="button" class="btn btn-outline-primary" (click)="showAddProducts()">Add Product</button>
@@ -66,10 +66,12 @@
             </tbody>
             </table>
         </section>
-        <section class="col-md-5" *ngIf="showAddProduct">
+        <section class="col-md-3  content-new" *ngIf="showAddProduct">
             <app-add-products></app-add-products>
         </section>
     </div>
+
+
     <!--
     source-to-view data binding
     ----------------------------

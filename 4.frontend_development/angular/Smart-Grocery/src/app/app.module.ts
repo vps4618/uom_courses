@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreProductsComponent } from './components/store-products/store-products.component';
 import { ContentLimiterPipe } from './content-limiter.pipe';
 import { AddProductsComponent } from './components/add-products/add-products.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddProductsComponent } from './components/add-products/add-products.com
     AddProductsComponent,],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

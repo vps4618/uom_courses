@@ -1,0 +1,16 @@
+    Reactive Forms
+==============================
+
+1.First we have to import ReactiveFormModule to app.module.ts and add it to imports array  like below.
+    ---------------------------------------
+            app.module.ts
+    ---------------------------------------
+    import { ReactiveFormsModule } from '@angular/forms';
+    
+    @NgModule({
+        imports: [
+        ReactiveFormsModule
+    ]
+    })
+
+2.
