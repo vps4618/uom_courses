@@ -55,12 +55,17 @@ export class AddProductsComponent implements OnInit {
   //   alert("ngOnDestroy Called");
   //   console.log("triggered ngOnDestroy");
   // }
- isDataUploading:boolean = false;
- onSubmit(){
-
+ 
+  public showSubmitSuccess:boolean = false;
+  isDataUploading:boolean = false;
+ 
+  get f(){
+    return this.productForm.controls;
+  }
+ 
+  public onSubmit(){
+  this.showSubmitSuccess = true;
+  this.productForm.reset();
  }
 
- get f(){
-   return this.productForm.controls;
- }
 }

@@ -88,8 +88,9 @@
         </div>
         <div class="col-12 text-end mt-5">
             <button type="button" class="btn btn-outline-secondary me-2">cancel</button>
-            <button type="button" class="btn btn-outline-primary" [disabled]="f['productName'].invalid || f['description'].invalid || f['brand'].invalid || f['category'].invalid || f['expiredDate'].invalid || f['manufacturedDate'].invalid || f['batchNumber'].invalid || f['unitPrice'].invalid || f['quantity'].invalid" >Submit<i *ngIf="isDataUploading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
+            <button type="button" class="btn btn-outline-primary" (click)="onSubmit()" [disabled]="f['productName'].invalid || f['description'].invalid || f['brand'].invalid || f['category'].invalid || f['expiredDate'].invalid || f['manufacturedDate'].invalid || f['batchNumber'].invalid || f['unitPrice'].invalid || f['quantity'].invalid" >Submit<i *ngIf="isDataUploading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
         </div>
 
     </form>
+    <h3 *ngIf="showSubmitSuccess">Form Submitted !</h3>
 </div>
