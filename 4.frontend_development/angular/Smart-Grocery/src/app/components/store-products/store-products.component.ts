@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/service/product.service';
 @Component({
   selector: 'app-store-products',
 
@@ -24,14 +26,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreProductsComponent implements OnInit {
 
-  constructor() { 
+  constructor(private productService :ProductService) { 
   }
 
   ngOnInit(): void {
+    this.getProduct();
   }
 
   public showAddProduct:boolean | undefined;
-
+  isLoading:boolean=false;
   //interpolation by using simple properties
   public firstProductItemName = "White Basmathi Rice";
   public quantityOfRice = 75;
@@ -53,38 +56,7 @@ export class StoreProductsComponent implements OnInit {
   }
 
   //structural directives
-  public products = [{
-    "productId":"001",
-    "productName":"White Basmathi Rice",
-    "createdDate":"2020.01.29",
-    "unitPrice":"400",
-    "quantity":100,
-    "productDescription":"White Basmathi Rice imported from pakistan. High quality rice with extra fragnance. Organically grown."
-  },
-  {
-    "productId":"002",
-    "productName":"Flour",
-    "createdDate":"2020.01.29",
-    "unitPrice":"190",
-    "quantity":50,
-    "productDescription":"Super Fine Whole grain general Purpose flour"
-  },
-  {
-    "productId":"003",
-    "productName":"Sugar",
-    "createdDate":"2020.01.29",
-    "unitPrice":"200",
-    "quantity":1200,
-    "productDescription":"White sugar manufactured by Palwatte Factory"
-  },
-  {
-    "productId":"004",
-    "productName":"Dhal",
-    "createdDate":"2020.01.29",
-    "unitPrice":"200",
-    "quantity":10,
-    "productDescription":"Imported mysoor dhal from India"
- }]
+  public products :Product[]= [];
 
  public isUnchanged = true;
  
@@ -107,5 +79,16 @@ public hideAddProducts(){
   this.showAddProduct= false;
 }
 
+getProduct(){
+  this.isLoading=true;
+  this.productService.getProducts().subscribe((res)=>{
+    this.products = res.data;
+    this.isLoading =false;
+  })
+}
+
+refresh(){
+  this.getProduct();
+}
 }
 

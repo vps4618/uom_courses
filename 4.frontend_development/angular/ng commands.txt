@@ -4,7 +4,11 @@ ng new project-name //new project
 ng serve //run project
 ng build //build project
 ng g c component-name //create a new component 
+ng g pipe pipe-name  //create a new pipe
 
+i.ng generate service <service name> 
+                                        ------------>use to create new service
+ii.ng g s <service name>
 
 //npm commands
 npm install bootstrap //install bootstrap 

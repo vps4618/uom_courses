@@ -1,5 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
+import { Product } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-add-products',
@@ -7,7 +10,7 @@ import { FormBuilder,Validators } from '@angular/forms';
   styleUrls: ['./add-products.component.css']
 })
 export class AddProductsComponent implements OnInit {
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private productService:ProductService) { }
 
   productForm =this.fb.group({
     productName:['',Validators.required],
@@ -17,8 +20,9 @@ export class AddProductsComponent implements OnInit {
     expiredDate:['',Validators.required],
     manufacturedDate : ['',Validators.required],
     batchNumber : ['',Validators.required],
-    unitPrice : ['',[Validators.required,Validators.min(1)]],
-    quantity : ['',[Validators.required,Validators.min(50)]]
+    unitPrice : [0,[Validators.required,Validators.min(1)]],
+    quantity : [0,[Validators.required,Validators.min(50)]],
+    createdDate:['',Validators.required]
   });
 
   ngOnInit(): void {
@@ -56,16 +60,23 @@ export class AddProductsComponent implements OnInit {
   //   console.log("triggered ngOnDestroy");
   // }
  
-  public showSubmitSuccess:boolean = false;
+  //public showSubmitSuccess:boolean = false;
   isDataUploading:boolean = false;
  
   get f(){
     return this.productForm.controls;
   }
  
-  public onSubmit(){
-  this.showSubmitSuccess = true;
-  this.productForm.reset();
- }
+  onSubmit(){
+    // this.showSubmitSuccess = true;
+    // this.productForm.reset();
+
+    const values = this.productForm.value as Product;
+    values.createdDate = new Date().toDateString();
+    this.productService.addProduct(values as Product).subscribe((res)=>{
+      debugger;
+      this.productForm.reset();
+    });
+  }
 
 }

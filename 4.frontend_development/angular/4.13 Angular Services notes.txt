@@ -1,0 +1,11 @@
+    Angular services
+=======================
+
+This  use to connect with backend.
+created only  once.
+
+--------------------------------------
+    commands to create new service
+--------------------------------------
+i.ng generate service <service name>
+ii.ng g s <service name>

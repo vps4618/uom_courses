@@ -7,6 +7,7 @@ import { StoreProductsComponent } from './components/store-products/store-produc
 import { ContentLimiterPipe } from './content-limiter.pipe';
 import { AddProductsComponent } from './components/add-products/add-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

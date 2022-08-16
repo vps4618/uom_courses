@@ -36,10 +36,10 @@
                     <!--ngFor-->
                     <!--when a row clicked its bg  color will change-->
                     <tr *ngFor="let product of products let i = index" (click)="selectProduct(i)" [ngClass]="rowIndex == i ? 'active' : '' ">
-                        <th scope="row">{{product.productId}}</th>
+                        <th scope="row">{{product.id}}</th>
                         <td>{{product.productName}}</td>
                         <!-- custom pipe -->
-                        <td>{{product.productDescription | contentLimiter}}</td>
+                        <td>{{product.description| contentLimiter}}</td>
                         <!-- date pipe with parameters
                         <td>{{product.createdDate | date : "MM/dd/yy"}}</td> -->
                         
