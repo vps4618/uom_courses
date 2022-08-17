@@ -14,6 +14,8 @@ export class ProductService {
   HttpOptions ={
     headers:new HttpHeaders({'Content-Type':'application/json'}),
 };
+
+//use to post data of form to the url
   addProduct(product:Product):Observable<AddProductResponse>{
     return this.http.post<AddProductResponse>(
       this.baseUrl + 'api/products',
@@ -22,6 +24,7 @@ export class ProductService {
     );
   }
 
+  //use to get data from api
   getProducts():Observable<productResponse>{
     return this.http.get<productResponse>(
       this.baseUrl + 'api/products'

@@ -1,3 +1,4 @@
+//use to put data of form and send through post method
 export interface Product{
     id:number;
     productName:string;

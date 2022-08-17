@@ -1,10 +1,16 @@
 <div class="container-fluid main-content">
     <div class="row">
-        <section [ngClass]="showAddProduct ? 'col-md-5' : 'col-md-12'">
+        <section [ngClass]="showAddProduct || showEditProduct ? 'col-md-5' : 'col-md-12'">
             <div class="product-header">
-                <h1>Product List</h1>
+                <h1>Product List {{message}}
+                    <!--refresh button-->
+                    <span *ngIf="!isLoading" (click)="refresh()" style="cursor:pointer;">
+                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </span>
+                    <i *ngIf="isLoading" class="fa fa-refresh fa-spin fa-fw" aria-hidden="true"></i>
+                </h1>
                 <button *ngIf="!showAddProduct" type="button" class="btn btn-outline-primary" (click)="showAddProducts()">Add Product</button>
-                <button *ngIf="showAddProduct" type="button" class="btn btn-outline-primary" (click)="hideAddProducts()">Close Products</button>
+                <!--<button *ngIf="showAddProduct" type="button" class="btn btn-outline-primary" (click)="hideAddProducts()">Close Products</button>-->
             </div>
             <table class="table">
             <thead class="thead-light t-head">
@@ -35,7 +41,7 @@
 
                     <!--ngFor-->
                     <!--when a row clicked its bg  color will change-->
-                    <tr *ngFor="let product of products let i = index" (click)="selectProduct(i)" [ngClass]="rowIndex == i ? 'active' : '' ">
+                    <tr *ngFor="let product of products let i = index" (click)="selectProduct(i,product.id)" [ngClass]="rowIndex == i ? 'active' : '' ">
                         <th scope="row">{{product.id}}</th>
                         <td>{{product.productName}}</td>
                         <!-- custom pipe -->
@@ -57,7 +63,7 @@
                         </td>
                         <td colspan=3>
                             <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon"><i class="fa fa-eye"></i></button>
-                            <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon"><i class="fa fa-pencil-square-o"></i></button>
+                            <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon" (click)="OpenEditProductView()"><i class="fa fa-pencil-square-o"></i></button>
                         </td>
                         <!--
                             <div [ngStyle]=" country == 'SL' ? {'background-color': 'green'} : {'background-color': 'red'} ">My Country</div>
@@ -66,9 +72,14 @@
             </tbody>
             </table>
         </section>
-        <section class="col-md-3  content-new" *ngIf="showAddProduct">
-            <app-add-products></app-add-products>
+        <section class="col-md-3  content-new" *ngIf="showAddProduct || showEditProduct">
+            <app-add-products *ngIf="
+            showAddProduct" (productAddEvent)="updateProductList()" (closeAddEvent)="closeAddView()"></app-add-products>
+
+            <!--parent to child data sharing through input decorator-->
+            <app-edit-product *ngIf="showEditProduct" [productId]="selectedProductId" (cancelEditEvent)="closeEditView()"></app-edit-product>
         </section>
+        <app-view-product-details></app-view-product-details>
     </div>
 
 

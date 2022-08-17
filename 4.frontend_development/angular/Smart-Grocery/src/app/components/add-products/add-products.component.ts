@@ -1,5 +1,5 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/service/product.service';
@@ -11,6 +11,10 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class AddProductsComponent implements OnInit {
   constructor(private fb:FormBuilder,private productService:ProductService) { }
+
+  //update product component through child to parent data sharing
+  @Output() productAddEvent : EventEmitter<void> = new EventEmitter<void>();
+  @Output() closeAddEvent : EventEmitter<void> = new EventEmitter<void>();
 
   productForm =this.fb.group({
     productName:['',Validators.required],
@@ -75,8 +79,16 @@ export class AddProductsComponent implements OnInit {
     values.createdDate = new Date().toDateString();
     this.productService.addProduct(values as Product).subscribe((res)=>{
       debugger;
+
+      //emit data
+      this.productAddEvent.emit();
+
       this.productForm.reset();
     });
+  }
+
+  cancel(){
+    this.closeAddEvent.emit();
   }
 
 }
