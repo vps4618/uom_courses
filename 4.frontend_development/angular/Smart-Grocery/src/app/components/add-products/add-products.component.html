@@ -1,4 +1,4 @@
-<div class="app-product-section mt-3">
+<div class="app-product-section mt-3" style="background-color:  #ecf3ff;border-radius: 10px;padding: 10px;">
     <div class="box-head">
         <h1 class="pr-name">Add a new product</h1>
         <button type="button" class="btn btn-light" (click)="cancel()">x</button>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="col-12 text-end mt-5">
-            <button type="button" class="btn btn-outline-secondary me-2">cancel</button>
+            <button type="button" class="btn btn-outline-secondary me-2"  (click)="cancel()">cancel</button>
             <button type="button" class="btn btn-outline-primary" (click)="onSubmit()" [disabled]="f['productName'].invalid || f['description'].invalid || f['brand'].invalid || f['category'].invalid || f['expiredDate'].invalid || f['manufacturedDate'].invalid || f['batchNumber'].invalid || f['unitPrice'].invalid || f['quantity'].invalid" >Submit<i *ngIf="isDataUploading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
         </div>
 

@@ -47,7 +47,8 @@ export class StoreProductsComponent implements OnInit {
     this.message = this.viewComponent.childMessage;
   }
   showEditProduct!: boolean;
-  selectedProductId !:number;
+  //selectedProductId !:number;
+  selectedProduct!:Product;
 
   public showAddProduct:boolean | undefined;
   isLoading:boolean=false;
@@ -62,7 +63,7 @@ export class StoreProductsComponent implements OnInit {
   public isRowSelected:boolean | undefined;
   public rowIndex!: number | undefined; //hence public rowIndex:number; not working we have to use | undefined. 
 //hence public rowIndex:number; not working we have to use | undefined. 
-
+public isEyeClicked!:boolean;
   public getDhalStorage(){
      if(this.dhalStorage<50){
        this.isLowInventory = true;
@@ -81,14 +82,18 @@ export class StoreProductsComponent implements OnInit {
  }
 
  //selecting row
-  public selectProduct(selectedRow:number,selectedId:number){
+  public selectProduct(selectedRow:number,product:Product){
     this.isRowSelected = true;
     this.rowIndex = selectedRow;
-    this.selectedProductId = selectedId;
+    this.selectedProduct =product;
   }
 
   public showAddProducts(){
-    this.showAddProduct = true;
+    if(this.showEditProduct){
+      this.showEditProduct = false;
+    }
+      this.showAddProduct = true;
+    
   }
 
   // public hideAddProducts(){
@@ -114,7 +119,10 @@ export class StoreProductsComponent implements OnInit {
   }
   //open edit product view
   OpenEditProductView(){
-    this.showEditProduct =true;
+    if(this.showAddProduct){
+      this.showAddProduct = false;
+    }
+    this.showEditProduct = true;
   }
 
   //close edit view
@@ -125,6 +133,10 @@ export class StoreProductsComponent implements OnInit {
   //close add view
   closeAddView(){
     this.showAddProduct = false;
+  }
+
+  eyeClicked(){
+    this.isEyeClicked=true;
   }
 }
 

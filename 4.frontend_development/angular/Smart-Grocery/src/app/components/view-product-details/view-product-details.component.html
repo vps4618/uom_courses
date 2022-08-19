@@ -1,1 +1,59 @@
-<p>view-product-details works!</p>
+<div class="container">
+
+        <div class="col-md-10 content-bg">
+            <div  style="float: right;">
+                <button class="btn btn-outline-primary" routerLink="">Back to Products List</button>
+            </div>
+            <div>
+                <h5 class="mb-3">{{selectedProduct.productName}}</h5>
+            </div>            
+            <div>
+                <div class="form-group">
+                    <label class="form-label">Id : </label>
+                    <span>{{selectedProduct.id}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Product Name : </label>
+                    <span>{{selectedProduct.productName}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description : </label>
+                    <span>{{selectedProduct.description}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Batch Number : </label>
+                    <span>{{selectedProduct.batchNumber}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Category : </label>
+                    <span>{{selectedProduct.category}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Brand : </label>
+                    <span>{{selectedProduct.brand}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Expire Date : </label>
+                    <span>{{selectedProduct.expiredDate}}</span>
+                </div>
+                <div  class="form-group">
+                    <label class="form-label">Manufactured Date : </label>
+                    <span>{{selectedProduct.manufacturedDate}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Unit Price : </label>
+                    <span>{{selectedProduct.unitPrice}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quantity : </label>
+                    <span>{{selectedProduct.quantity}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Created Date : </label>
+                    <span>{{selectedProduct.createdDate}}</span>
+                </div>
+
+            </div>
+        </div>
+    
+</div>

@@ -1,8 +1,9 @@
-<div class="container-fluid main-content">
+<div class="container main-content">
     <div class="row">
-        <section [ngClass]="showAddProduct || showEditProduct ? 'col-md-5' : 'col-md-12'">
+        <!-- <section [ngClass]="showAddProduct || showEditProduct ? 'col-md-12' : 'col-md-12'"> -->
+           <section> 
             <div class="product-header">
-                <h1>Product List {{message}}
+                <h1>Product List
                     <!--refresh button-->
                     <span *ngIf="!isLoading" (click)="refresh()" style="cursor:pointer;">
                         <i class="fa fa-refresh" aria-hidden="true"></i>
@@ -12,6 +13,8 @@
                 <button *ngIf="!showAddProduct" type="button" class="btn btn-outline-primary" (click)="showAddProducts()">Add Product</button>
                 <!--<button *ngIf="showAddProduct" type="button" class="btn btn-outline-primary" (click)="hideAddProducts()">Close Products</button>-->
             </div>
+            <div class="table-responsive-sm">
+
             <table class="table">
             <thead class="thead-light t-head">
                 <tr>
@@ -41,7 +44,7 @@
 
                     <!--ngFor-->
                     <!--when a row clicked its bg  color will change-->
-                    <tr *ngFor="let product of products let i = index" (click)="selectProduct(i,product.id)" [ngClass]="rowIndex == i ? 'active' : '' ">
+                    <tr *ngFor="let product of products let i = index" (click)="selectProduct(i,product)" [ngClass]="rowIndex == i ? 'active' : '' ">
                         <th scope="row">{{product.id}}</th>
                         <td>{{product.productName}}</td>
                         <!-- custom pipe -->
@@ -61,8 +64,12 @@
                             <p *ngIf="product.quantity <= 50">Lower Inventory Level</p>
                             <p *ngIf="product.quantity > 50">Sufficient Inventory Level</p>    
                         </td>
-                        <td colspan=3>
+                        <td>
+                            
+                            
+                            <a [routerLink]="['product-detail-view',product.id]">
                             <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon"><i class="fa fa-eye"></i></button>
+                            </a>
                             <button type="button" [disabled]="!(rowIndex==i && isRowSelected)" class="btn-xs icon" (click)="OpenEditProductView()"><i class="fa fa-pencil-square-o"></i></button>
                         </td>
                         <!--
@@ -71,15 +78,16 @@
                     </tr>    
             </tbody>
             </table>
+        </div>
         </section>
-        <section class="col-md-3  content-new" *ngIf="showAddProduct || showEditProduct">
+        <section class="content-new" *ngIf="showAddProduct || showEditProduct">
             <app-add-products *ngIf="
             showAddProduct" (productAddEvent)="updateProductList()" (closeAddEvent)="closeAddView()"></app-add-products>
 
             <!--parent to child data sharing through input decorator-->
-            <app-edit-product *ngIf="showEditProduct" [productId]="selectedProductId" (cancelEditEvent)="closeEditView()"></app-edit-product>
+            <app-edit-product id="AddProduct" *ngIf="showEditProduct" [product]="selectedProduct" (cancelEditEvent)="closeEditView()" (editProductEvent)="updateProductList()"></app-edit-product>
         </section>
-        <app-view-product-details></app-view-product-details>
+        <router-outlet></router-outlet>
     </div>
 
 
