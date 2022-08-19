@@ -20,4 +20,5 @@ export class ViewProductDetailsComponent implements OnInit {
   }
 
   childMessage : string = "";
+  
 }

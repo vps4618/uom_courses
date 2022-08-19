@@ -75,9 +75,12 @@ export class AddProductsComponent implements OnInit {
     // this.showSubmitSuccess = true;
     // this.productForm.reset();
 
+    this.isDataUploading =true;
     const values = this.productForm.value as Product;
     values.createdDate = new Date().toDateString();
     this.productService.addProduct(values as Product).subscribe((res)=>{
+      
+      this.isDataUploading = false;
       debugger;
 
       //emit data
