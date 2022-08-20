@@ -1,0 +1,4 @@
+create new npm project -> npm init -y
+run js files -> node fileName.js
+install express -> npm i express
+install ascii-text-generator  -> npm i ascii-text-generator
