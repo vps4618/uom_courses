@@ -1,0 +1,4 @@
+initialize npm project ->  npm init -y
+install express and mongoose -> npm i express mongoose
+install nodemon and dotenv -> npm i --save-dev dotenv nodemon
+run server -> npm run devStart

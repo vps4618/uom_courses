@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Ajax</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body  style="text-align: center;">
+    <h2>jQuery GET and POST Methods</h2>
+    <button id="get">GET</button>
+    <br>
+    <div id="get-response"></div>
+    <br>
+    <button id="post">POST</button>
+    <br>
+    <div id="post-response"></div>
+    <script>
+        "use strict";
+        $(document).ready(function(){
+            $('#get').click(function(){
+                
+                $.get({
+                    url : "https://6302178dc6dda4f287b2a5ef.mockapi.io/users/1/users/2",
+                    success : function(result){
+                        $("#get-response").text(JSON.stringify(result));
+                    }
+                });
+            });
+
+            $('#post').click(function(){
+                $.post({
+                    url : "https://6302178dc6dda4f287b2a5ef.mockapi.io/users/1/users/",
+                    data : {
+                        "name" : "senula pabasara"
+                    },
+                    success : function(result){
+                        $("#post-response").text(JSON.stringify(result));
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+</html>
