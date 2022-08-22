@@ -11,7 +11,208 @@ app.use('/users',usersRoutes);
 
 app.get('/',(req,res) => {
     console.log('[TEST]!');
-    res.send('Hello from home page');
+    res.send(`<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery Ajax</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body  style="text-align: center;">
+        <h2>Local API testing using jquery</h2>
+        <br>
+        <!--get all users-->
+        <div id="get-response"></div>
+        <br>
+        <button id="get">GET ALL USERS</button>
+        <hr>
+        <!--get all users by id-->
+        <div id="getUser-response"></div>
+        <br>
+        <input type="text" id="id">
+        <button id="getUser">GET ALL USERS BY ID</button>
+        <hr>
+        <br>
+        <br>
+        <!--post a user-->
+        <form>
+            <label >First Name : </label>
+            <input id="firstName" type="text">
+            <br>
+            <br>
+            <label >Last Name : </label>
+            <input id="lastName" type="text">
+            <br>
+            <br>
+            <label >Age : </label>
+            <input id="age" type="number">
+        </form>
+        <div id="post-response"></div>
+        <br>
+        <button id="post">POST</button>
+        <hr>
+        
+        <!--delete a user-->
+        <input type="text" id="deleteId">
+        <button id="deleteUser">DELETE USER BY ID</button>
+        <br>
+        <div id="delete-response"></div>
+        <hr>
+
+        <!--update user-->
+        <form>
+            <label >First Name : </label>
+            <input id="firstNameUpdate" type="text">
+            <br>
+            <br>
+            <label >Last Name : </label>
+            <input id="lastNameUpdate" type="text">
+            <br>
+            <br>
+            <label >Age : </label>
+            <input id="ageUpdate" type="number">
+        </form>
+        <br>
+        <input type="text" id="updateId">
+        <button id="updateUser">UPDATE USER BY ID</button>
+        <br>
+        <div id="update-response"></div>
+        <br>
+        <hr>
+        <script>
+            "use strict";
+            $(document).ready(function(){
+                //get users
+                $('#get').click(function(){
+                    
+                    $.get({
+                        url : "http://localhost:5000/users",
+                        success : function(result){
+                            $("#get-response").text(JSON.stringify(result));
+                        }
+                    });
+                });
+                
+                //post a user
+                $('#post').click(function(){
+                    let firstName = $('#firstName').val();
+                    let lastName = $('#lastName').val();
+                    let age = document.getElementById('age').value;
+
+                    $.ajax({
+
+                        url : "http://localhost:5000/users",
+                        type:"POST",
+                        contentType: 'application/json',
+                        //JSON.stringify  is required when sending data to server .it convert js object to string
+                        data :  JSON.stringify({
+                            "firstName" : firstName,
+                            "lastName" :lastName,
+                            "age" : age
+                        }),
+                        success : function(result){
+                            $("#post-response").text(JSON.stringify(result));
+                            $.get({
+                                url : "http://localhost:5000/users",
+                                success : function(result){
+                                    $("#get-response").text(JSON.stringify(result));
+                                        }
+                            });
+                            
+                            
+                        }
+                    })
+
+                    document.getElementById('firstName').value = "";
+                    document.getElementById('lastName').value = "";
+                    document.getElementById('age').value = "0";
+                });
+                
+                //get a user by id
+                $('#getUser').click(function(){
+                    $.get({
+                        url : 'http://localhost:5000/users/'+$('#id').val(),
+                        success : function(result){
+                            $("#getUser-response").text(JSON.stringify(result));
+                        }
+                    });
+                    document.getElementById('id').value = '';
+                });
+
+                //delete a user by id
+                $('#deleteUser').click(() => {
+                    /*
+                    // url of the data to be delete
+                        var ajxReq = $.ajax( {
+                        url : 'http://time.jsontest.com',
+                        type : 'DELETE',
+                        success : function ( data ) {
+                        $( "p" ).append( "Delete request is Success." );
+                        },
+                        error : function ( jqXhr, textStatus, errorMessage ) {
+                        $( "p" ).append( "Delete request is Fail.");
+                        }
+                        });
+                        });
+                        });
+                    */
+                   $.ajax({
+                    url : 'http://localhost:5000/users/'+$('#deleteId').val(),
+                    type : 'delete',
+                    success: function (result){
+                         $('#delete-response').text(result);   
+                         $.get({
+                                url : "http://localhost:5000/users",
+                                success : function(result){
+                                    $("#get-response").text(JSON.stringify(result));
+                                        }
+                            });
+                    }
+                   });
+                   document.getElementById('deleteId').value = '';
+
+                });
+
+                // update user
+                //we need to include headers in ajax patch fucntion to work
+                $('#updateUser').click(() => {
+                    let firstName1 = $('#firstNameUpdate').val();
+                    let lastName1 = $('#lastNameUpdate').val();
+                    let age1 = document.getElementById('ageUpdate').value;
+
+                    $.ajax({
+                        headers : {
+                            'Accept' : 'application/json',
+                            'Content-Type' : 'application/json'
+                        },
+                       url : 'http://localhost:5000/users/'+$('#updateId').val(),
+                        type : 'PATCH',
+                        data : JSON.stringify({
+                            "firstName" : firstName1,
+                            "lastName" :lastName1,
+                            "age" : age1
+                        }),
+                        success : (result) => {
+                            $('#update-response').text(result);
+                            $.get({
+                                url : "http://localhost:5000/users",
+                                success : function(result){
+                                    $("#get-response").text(JSON.stringify(result));
+                                        }
+                            });
+                        }    
+                    });
+                    document.getElementById('updateId').value = '';
+                    document.getElementById('firstNameUpdate').value = '';
+                    document.getElementById('lastNameUpdate').value = '';
+                    document.getElementById('ageUpdate').value = '0';
+                });
+            });
+        </script>
+    </body>
+    </html>`);
 })
 
 app.listen(PORT, () => {

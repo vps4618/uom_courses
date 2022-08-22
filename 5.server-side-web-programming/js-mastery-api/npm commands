@@ -1,4 +1,11 @@
 initialize npm folder -> npm init -y
+
 install express -> npm install --save express
-install nodemon -> npm install --save-dev nodemon
-install body-parser -> npm install body-parser
+
+install nodemon(help to edit source of server without running npm start after once done) -> npm install --save-dev nodemon
+
+install body-parser (help to get post body data as json) -> npm install body-parser
+
+install uuid (help create random hash) -> npm install uuid
+
+run server -> npm start
