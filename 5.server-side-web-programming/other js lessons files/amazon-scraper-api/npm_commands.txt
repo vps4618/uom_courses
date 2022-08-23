@@ -1,0 +1,5 @@
+dependencies to install -> npm install express request-promise nodemon
+
+to run server -> npm run dev
+
+to install request -> npm install request-promise

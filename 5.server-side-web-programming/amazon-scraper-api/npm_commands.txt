@@ -1,1 +1,0 @@
-dependencies to install -> npm install express request-promise nodemon
