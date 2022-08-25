@@ -21,6 +21,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
+                <th scope="col">Actions</th>
                 <th scope="col">Item Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Sinhala Name</th>
@@ -33,14 +34,16 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of selectedProduct">
-                <th scope="row">product.ITEM_ID</th>
-                <td>product.ItemName</td>
-                <td>product.SinhalaName</td>
-                <td>product.Barcode</td>
-                <td>product.Cost</td>
-                <td>product.Wholesale</td>
-                <td>product.BillPrice</td>
-                <td>product.Price</td>
+                <td [routerLink]="['item-details',product.ITEM_ID]"><button type="button" class="btn-xs icon"><i class="fa fa-eye"></i></button></td>
+                <th scope="row">{{product.ITEM_ID}}</th>
+                <td>{{product.ItemName}}</td>
+                <td>{{product.SinhalaName}}</td>
+                <td>{{product.Barcode}}</td>
+                <td>{{product.Cost}}</td>
+                <td>{{product.Wholesale}}</td>
+                <td>{{product.BillPrice}}</td>
+                <td>{{product.Price}}</td>
+             
             </tr>
         </tbody>
     </table>    
