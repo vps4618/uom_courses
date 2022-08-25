@@ -17,9 +17,9 @@ export class SearchItemsComponent implements OnInit {
     //   this.selectedProduct = res;
     //   console.log(this.selectedProduct);
     // }))
-    this.productService.getAllProducts().subscribe((res) => {
-      this.selectedProduct =  res;
-    })
+    // this.productService.getAllProducts().subscribe((res) => {
+    //   this.selectedProduct =  res;
+    // })
   }
 
   searchItems(){
