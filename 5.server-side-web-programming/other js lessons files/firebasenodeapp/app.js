@@ -11,6 +11,11 @@ const postsRoutes = require('./routes/posts');
 // when a user goes to posts , postsRoutes will available
 app.use('/posts',postsRoutes);
 
+//routes
+app.get('/',(req,res)=>{
+    res.send('We are on home');
+})
+
 // connect to db
 mongoose.connect(process.env.DB_CONNECTION,() => {
     console.log('Successfully connected');
