@@ -1,0 +1,1 @@
+to hide passwords install dotenv -> npm install dotenv
