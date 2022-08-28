@@ -6,6 +6,8 @@ const cors = require('cors');
 require('dotenv/config');
 
 app.use(bodyParser.json());
+
+//disable same origin policy error
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
