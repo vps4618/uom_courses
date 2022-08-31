@@ -15,4 +15,7 @@ const PostSchema = mongoose.Schema({
     } 
 });
 
+PostSchema.index({title: 'text', 'profile.something': 'text'});
+
+
 module.exports = mongoose.model('Posts',PostSchema);

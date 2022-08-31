@@ -47,6 +47,42 @@ router.get('/:postId',async (req,res) => {
     }    
 });
 
+//get a specific post by title name include
+router.get('/tnamein/:tname',async (req,res) => {
+    try{
+        const post = await Post.find({title:{$regex:req.params.tname,$options:"i"}});
+        res.json(post);
+    }
+    catch(err){
+        res.json({message:err});
+    }    
+});
+
+//get a specific post by title name startswith
+router.get('/tnamesw/:tname',async (req,res) => {
+    // try{
+    //     const post = await Post.find({$text:{$search:req.params.tname,$caseSensitive: false}});
+    //     res.json(post);
+    // }
+    // catch(err){
+    //     res.json({message:err});
+    // }    
+    try{
+        const posts = await Post.find();
+        const findedPosts = posts.filter((post)=> {
+            if(post.title.toLowerCase().startsWith(req.params.tname.toLowerCase())){
+                return post
+            }
+        })
+        res.json(findedPosts);
+    }
+    catch(err){
+
+    }
+});
+
+
+
 // delete a specific post
 router.delete('/:postId',async (req,res) => {
     try{
