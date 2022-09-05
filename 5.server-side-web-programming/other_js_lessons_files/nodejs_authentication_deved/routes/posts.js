@@ -8,6 +8,7 @@ router.get('/',verify,(req,res) => {
     //         description:"random data you shouldn't access"
     //     }
     // })
+
     res.send(req.user);
 });
 module.exports = router;

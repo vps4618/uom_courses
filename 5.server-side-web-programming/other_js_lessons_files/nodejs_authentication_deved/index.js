@@ -1,3 +1,10 @@
+    /*
+    better comments
+    -----------------
+    ! Hey this code is not working
+    ? Is this still working 
+    TODO This function is not finished
+    */
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
