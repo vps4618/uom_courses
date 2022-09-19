@@ -44,3 +44,11 @@ print(str(lenOfWord7) + "\n")
 word8 = "Hello World"
 print("W" not in word8)
 print("e" in word8)
+print("\n")
+
+# ! r/R (Raw String) <- Suppresses actual meaning of Escape characters
+print (r'\n')
+print (R'\n') 
+
+# ? %: Format - Performs String formatting
+print("My name is %s and I am %d years old!" % ('Kumar', 20)) 
