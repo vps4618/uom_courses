@@ -12,15 +12,15 @@ Address - Object
 */
 
 let user = {
-    "name" : "B.D.Vishwa Praveen",
-    "age" : 17,
-    "telephoneNumbers" : ["0772923594","0713593086"],
-    "isMarried" : false,
-    "address" : {
-        "streetName" : "Bulathsinhala",
-        "city" : "Ingiriya",
-        "postalCode" : 100526
-    }
-}
+  name: "B.D.Vishwa Praveen",
+  age: 17,
+  telephoneNumbers: ["0772923594", "0713593086"],
+  isMarried: false,
+  address: {
+    streetName: "Bulathsinhala",
+    city: "Ingiriya",
+    postalCode: 100526,
+  },
+};
 
 console.log(user.address.postalCode);
