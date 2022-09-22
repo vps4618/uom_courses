@@ -1,0 +1,5 @@
+1.Using meaningful names
+2.Write functions that does one thing (Single Responsibility Functions)
+3.Avoiding deep nesting
+4.Avoiding copying and pasting code 
+5.Commenting responsibly
