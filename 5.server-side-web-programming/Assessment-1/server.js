@@ -74,9 +74,27 @@ app.post("/api/customers", (req, res) => {
       }
     }
   } catch (err) {
-    res.status(400).json({ error: err });
+    res.status(400).json({ error: err.toString() });
   }
 });
+
+// get all records (optional)
+app.get("/api/customers", (req, res) => {
+  try {
+    const sql_command_for_get_records = "SELECT * from customer";
+    const parameters = [];
+    db.all(sql_command_for_get_records, parameters, (err, result) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+      } else {
+        res.status(200).json({ records: result });
+      }
+    });
+  } catch (e) {
+    res.status(400).json({ error: e.toString() });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on http://${host}:${PORT}`);
 });
