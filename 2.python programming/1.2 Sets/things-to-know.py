@@ -1,5 +1,6 @@
+
 # initialise a with {}
-a = {} # ! this creates empty dictionary not a set
+a = {}  # ! this creates empty dictionary not a set
 
 # check data type of a
 print(type(a))
