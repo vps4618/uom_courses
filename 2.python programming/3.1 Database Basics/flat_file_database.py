@@ -33,6 +33,7 @@ def addRecord():
         "Location": input("Where is the book? > ")
     }
     new_additions.append(new_record)
+    # appending new records to library.csv
     if len(new_additions) > 0:
         with open(filename, 'a',newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fields)
