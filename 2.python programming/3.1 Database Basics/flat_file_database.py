@@ -61,16 +61,16 @@ def addRecord():
 
 def displayData():
     for item in fields:
-        print("%-15s" % item, end='')
+        print("%-22s" % item, end='')
     print('\n')
 
     for item in fields:
-        print("%-15s" % "---------", end='')
+        print("%-22s" % "---", end='')
 
     print("\n")
     for row in data:
         for key, val in row.items():
-            print("%-15s" % val, end='')
+            print("%-22s" % val, end='')
         print("\n")
 
 
