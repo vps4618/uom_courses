@@ -78,6 +78,9 @@ def displayData():
 def searchData():
     # Search the data
     search_term = input("What would you like to search for?").lower()
+    if search_term=="" or search_term==" ":
+        print("Please enter valid keyword ! ")
+        return 
     results = []
     for row in data:
         for key, val in row.items():
