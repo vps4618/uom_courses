@@ -53,7 +53,9 @@ def addRecord():
             data.append(dict(row))
     current_ID = current_ID + 1
     print("-"*15)
+    print("----------------------------")
     print("New Record added successfully!")
+    print("----------------------------")
 
 
 # show all data
@@ -79,7 +81,9 @@ def searchData():
     # Search the data
     search_term = input("What would you like to search for?").lower()
     if search_term=="" or search_term==" ":
+        print("----------------------------")
         print("Please enter valid keyword ! ")
+        print("----------------------------")
         return 
     results = []
     for row in data:
@@ -101,7 +105,9 @@ def searchData():
                 print("  "+"%-20s" % val, end='')
             print("\n")
     else:
+        print("----------------------------")
         print("Sorry no records found")
+        print("----------------------------")
 
 
 # update data
@@ -116,7 +122,9 @@ def updateData():
                 except:
                     pass
     if len(toUpdate_items) == 0:
+        print("----------------------------")
         print("No items related to this ID.")
+        print("----------------------------")
 
     else:
         Title = input("Enter new Title : ")
@@ -136,7 +144,9 @@ def updateData():
             writer.writeheader()
             for item in data:
                 writer.writerow(item)
+        print("----------------------------")
         print("Item updated successfully")        
+        print("----------------------------")
 
 # delete data
 def deleteData():
@@ -150,7 +160,9 @@ def deleteData():
                 except:
                     pass
     if len(wantToDelete_items) == 0:
+        print("----------------------------")
         print("No items related to this ID.")
+        print("----------------------------")
     else:
         data.pop(index)
         with open(filename, 'w', newline='') as csvfile:
@@ -158,7 +170,9 @@ def deleteData():
             writer.writeheader()
             for item in data:
                 writer.writerow(item)
+        print("----------------------------")        
         print("Item deleted successfully !")
+        print("----------------------------")
 # execute the code
 print("------Welcome to the Python Library organiser------")
 
@@ -193,6 +207,10 @@ while choice.lower() != "x":
         deleteData()    
 
     elif choice.lower() == "x":
+        print("----------------------------")
         print("Thank you! Shutting down.")
+        print("----------------------------")
     else:
+        print("----------------------------")
         print("Sorry, I didnt recognise that option")
+        print("----------------------------")
