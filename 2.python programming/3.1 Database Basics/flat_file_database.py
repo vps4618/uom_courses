@@ -61,16 +61,16 @@ def addRecord():
 
 def displayData():
     for item in fields:
-        print("%-22s" % item, end='')
+        print("  "+"%-20s" % item, end='')
     print('\n')
 
     for item in fields:
-        print("%-22s" % "---", end='')
+        print("  "+"%-20s" % "---", end='')
 
     print("\n")
     for row in data:
         for key, val in row.items():
-            print("%-22s" % val, end='')
+            print("  "+"%-20s" % val, end='')
         print("\n")
 
 
@@ -87,15 +87,15 @@ def searchData():
     # Display the results
     if len(results) > 0:
         for item in fields:
-            print("%-15s" % item, end='')
+            print("  "+"%-20s" % item, end='')
         print('\n')
 
         for item in fields:
-            print("%-15s" % "---------", end='')
+            print("  "+"%-20s" % "---", end='')
         print("\n")
         for item in results:
             for key, val in item.items():
-                print("%-15s" % val, end='')
+                print("  "+"%-20s" % val, end='')
             print("\n")
     else:
         print("Sorry no records found")
