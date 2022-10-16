@@ -2,9 +2,10 @@
 
 import pymysql
 
+pwd = input("Enter password : ")
 # Open database connection
 db = pymysql.connect(host='localhost', user='root',
-                     password='Mysql@30145', database='testdb')
+                     password=pwd, database='testdb')
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
